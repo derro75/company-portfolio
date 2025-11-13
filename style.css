@@ -1,7 +1,6 @@
   .top-head {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 1rem 2rem;
     background-color: #fff;
     border-bottom: 1px solid #eee;
@@ -38,39 +37,14 @@
   .call i, .email i {
     font-size: 1.25rem;
     min-width: 1.5rem;
-    text-align: center;
-    color: #2200ff; /* Blue icons like reference */
-  }
 
+  }
+.emails i{
+    margin-left: 20px;
+}
   /* Vertical separator — now works! */
   .separator {
     width: 2px;
     height: 100%;
     background-color: #2200ff; /* Blue line like reference */
-    margin: 0 1rem;
   }
-
-  /* Responsive: stack on mobile */
-  @media (max-width: 768px) {
-    .top-head {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 1rem;
-    }
-    
-    .contact-sections {
-      flex-direction: column;
-      width: 100%;
-      gap: 1rem;
-      height: auto; /* Reset for mobile */
-    }
-    
-    .separator {
-      width: 100%;
-      height: 2px;
-      margin: 0.5rem 0;
-    }
-  }
-
-
