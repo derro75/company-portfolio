@@ -1,3 +1,76 @@
-.top-head{
+  .top-head {
     display: flex;
-}
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 60px; /* Ensures content has height */
+  }
+
+  .logo img {
+    max-width: 300px;
+    height: auto;
+  }
+
+  .contact-sections {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    height: 100%; /* Critical for separator to work */
+  }
+
+  .calls, .emails {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 1rem;
+    color: #333;
+  }
+
+  .call, .email {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .call i, .email i {
+    font-size: 1.25rem;
+    min-width: 1.5rem;
+    text-align: center;
+    color: #2200ff; /* Blue icons like reference */
+  }
+
+  /* Vertical separator — now works! */
+  .separator {
+    width: 2px;
+    height: 100%;
+    background-color: #2200ff; /* Blue line like reference */
+    margin: 0 1rem;
+  }
+
+  /* Responsive: stack on mobile */
+  @media (max-width: 768px) {
+    .top-head {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+    }
+    
+    .contact-sections {
+      flex-direction: column;
+      width: 100%;
+      gap: 1rem;
+      height: auto; /* Reset for mobile */
+    }
+    
+    .separator {
+      width: 100%;
+      height: 2px;
+      margin: 0.5rem 0;
+    }
+  }
+
+
