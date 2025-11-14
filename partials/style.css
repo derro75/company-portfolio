@@ -45,14 +45,15 @@
       /* Vertical Separator */
       .separator {
         width: 2px;
-        height: 100%;
-        background-color: #FF6B00; /* Orange like Windand */
+        height: 60px;
+        background-color: #2200ff; /* Orange like Windand */
         margin: 0 1rem;
       }
 
       /* Social Icons in Circles */
       .socials {
         display: flex;
+        flex-direction: row;
         gap: 0.5rem;
       }
 
@@ -75,7 +76,7 @@
       }
 
       /* Responsive */
-      @media (max-width: 768px) {
+      @media (max-width: 800px) {
         .top-head {
           flex-direction: column;
           align-items: flex-start;
