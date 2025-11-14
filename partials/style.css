@@ -76,12 +76,15 @@
       }
 
       /* Responsive */
-      @media (max-width: 800px) {
+      @media (max-width: px) {
         .top-head {
           flex-direction: column;
           align-items: flex-start;
           gap: 1rem;
           padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
         }
         
         .contact-sections {
