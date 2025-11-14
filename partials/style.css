@@ -1,4 +1,53 @@
-.top-head{
+.top-head {
     display: flex;
-    
-}
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 60px; /* Critical for separator */
+  }
+
+  .logo img {
+    max-width: 300px;
+    height: auto;
+  }
+
+  .contact-sections {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    height: 100%; /* Ensures children can use 100% height */
+  }
+
+  .calls, .emails {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 1rem;
+    color: #333;
+  }
+
+  .call, .email {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .call i, .email i {
+    font-size: 1.25rem;
+    min-width: 1.5rem;
+    text-align: center;
+    color: #2200ff; /* Blue icons like reference */
+  }
+
+  /* ✅ VERTICAL SEPARATOR — NOW WORKS */
+  .separator {
+    width: 2px;
+    height: 100%; /* Fills container height */
+    background-color: #2200ff; /* Blue line like reference */
+    margin: 0 1rem;
+    /* Optional: add subtle shadow for depth */
+    box-shadow: 0 0 4px rgba(34, 0, 255, 0.3);
+  }

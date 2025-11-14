@@ -20,15 +20,18 @@
     height: 100%; /* Critical for separator to work */
   }
 
-  .calls, .emails {
+  .calls, .emails, .socials{
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
     font-size: 1rem;
     color: #333;
   }
-
-  .call, .email {
+.socials{
+    padding: 29px;
+    border: 2px solid black;
+}
+  .call, .email, .social{
     display: flex;
     align-items: center;
     gap: 0.5rem;
