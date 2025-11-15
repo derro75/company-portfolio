@@ -48,3 +48,51 @@ function includeHTML() {
 }
 
 document.addEventListener("DOMContentLoaded", includeHTML);
+
+//navigation bar drop down
+// Toggle dropdown menus on click (not hover)
+  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Close other open dropdowns
+      document.querySelectorAll('.dropdown-toggle').forEach(otherToggle => {
+        if (otherToggle !== toggle) {
+          otherToggle.setAttribute('aria-expanded', 'false');
+          const otherMenu = otherToggle.nextElementSibling;
+          if (otherMenu && otherMenu.tagName === 'UL') {
+            otherMenu.style.display = 'none';
+          }
+        }
+      });
+      
+      // Toggle current dropdown
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !isExpanded);
+      
+      const menu = this.nextElementSibling;
+      if (menu && menu.tagName === 'UL') {
+        menu.style.display = isExpanded ? 'none' : 'block';
+      }
+    });
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.front-nav')) {
+      document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+        toggle.setAttribute('aria-expanded', 'false');
+        const menu = toggle.nextElementSibling;
+        if (menu && menu.tagName === 'UL') {
+          menu.style.display = 'none';
+        }
+      });
+    }
+  });
+
+  // Optional: Highlight active link on page load
+  document.querySelectorAll('.front-nav a').forEach(link => {
+    if (link.href === window.location.href) {
+      link.parentElement.classList.add('active');
+    }
+  });
