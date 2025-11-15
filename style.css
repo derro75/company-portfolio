@@ -197,7 +197,7 @@
       }
 
       /* Responsive */
-      @media (max-width: 992px) {
+      @media (max-width: 800px) {
         .bottom-head {
           flex-direction: column;
           padding: 0.75rem 1rem;
@@ -228,7 +228,7 @@
       @media (max-width:800px) {
         .top-head {
           flex-direction: column;
-          align-items: flex-start;
+          align-items: center;
           gap: 1rem;
           padding: 1rem;
           display: flex;
@@ -245,7 +245,13 @@
         
         .separator {
           width: 100%;
-          height: 2px;
+          height: 1px;
           margin: 0.5rem 0;
+          background-color: #3b3b3e;
         }
       }
+      .logo img {
+    max-width: 250px; /* Optional: reduce size on mobile for better fit */
+  }
+
+
