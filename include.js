@@ -96,3 +96,71 @@ document.addEventListener("DOMContentLoaded", includeHTML);
       link.parentElement.classList.add('active');
     }
   });
+
+
+
+
+
+
+
+
+
+
+
+  // our services pointer
+
+
+
+
+
+
+
+
+  // Simple SPA router (no dependencies)
+  function renderPage() {
+    const path = window.location.pathname;
+    
+    // Hide all page sections
+    document.querySelectorAll('.page-section').forEach(el => {
+      el.style.display = 'none';
+    });
+
+    // Show matching section
+    const pageId = path === '/' || path === '/index.html' 
+      ? 'home' 
+      : path.substring(1); // removes leading '/'
+
+    const targetSection = document.getElementById(pageId + '-section');
+    if (targetSection) {
+      targetSection.style.display = 'block';
+    } else {
+      // Fallback to home
+      document.getElementById('home-section').style.display = 'block';
+    }
+
+    // Update active nav link
+    document.querySelectorAll('.mainmenu a').forEach(link => {
+      link.parentElement.classList.toggle('active', 
+        link.getAttribute('href') === path || 
+        (path === '/' && link.getAttribute('href') === './')
+      );
+    });
+  }
+
+  // Handle back/forward buttons
+  window.addEventListener('popstate', renderPage);
+
+  // Run on load
+  document.addEventListener('DOMContentLoaded', () => {
+    // Optional: smooth scroll on anchor clicks
+    document.body.addEventListener('click', e => {
+      if (e.target.matches('a[href^="/"]:not([href="/"])')) {
+        e.preventDefault();
+        const href = e.target.getAttribute('href');
+        window.history.pushState({}, '', href);
+        renderPage();
+      }
+    });
+
+    renderPage();
+  });

@@ -1,0 +1,319 @@
+// this has, index.html, head.html, include.js, center.html
+// this is my index .html 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" text="text/css"href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="include.js" defer></script>
+    <script src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"></script>
+</head>
+<body>
+    
+<div data-include="partials/head.html"></div>
+    <div data-include="partials/center.html"></div>
+    <div data-include="partials/foot.html"></div>
+    
+</body>
+</html>
+
+this  is the include.js
+function includeHTML() {
+  const elements = document.querySelectorAll("[data-include]");
+  let loaded = 0;
+  const total = elements.length;
+
+  if (total === 0) {
+    // No partials found, still dispatch the event
+    document.dispatchEvent(new Event("partials-loaded"));
+    return;
+  }
+
+  elements.forEach(async el => {
+    const file = el.getAttribute("data-include");
+
+    try {
+      const response = await fetch(file);
+      if (!response.ok) throw new Error(`Failed to fetch ${file}`);
+      const html = await response.text();
+      el.innerHTML = html;
+
+      // ✅ Re-run any scripts inside the included file
+      el.querySelectorAll("script").forEach(oldScript => {
+        const newScript = document.createElement("script");
+
+        // Copy all attributes (src, data-*, etc.)
+        Array.from(oldScript.attributes).forEach(attr =>
+          newScript.setAttribute(attr.name, attr.value)
+        );
+
+        // Copy inline script content if any
+        newScript.text = oldScript.text;
+
+        // Replace old script with the new one so it executes
+        oldScript.replaceWith(newScript);
+      });
+
+    } catch (err) {
+      el.innerHTML = `<p style="color:red;">Error loading ${file}</p>`;
+      console.error(err);
+    } finally {
+      loaded++;
+      if (loaded === total) {
+        // ✅ All partials are loaded
+        document.dispatchEvent(new Event("partials-loaded"));
+      }
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", includeHTML);
+
+//navigation bar drop down
+// Toggle dropdown menus on click (not hover)
+  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Close other open dropdowns
+      document.querySelectorAll('.dropdown-toggle').forEach(otherToggle => {
+        if (otherToggle !== toggle) {
+          otherToggle.setAttribute('aria-expanded', 'false');
+          const otherMenu = otherToggle.nextElementSibling;
+          if (otherMenu && otherMenu.tagName === 'UL') {
+            otherMenu.style.display = 'none';
+          }
+        }
+      });
+      
+      // Toggle current dropdown
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !isExpanded);
+      
+      const menu = this.nextElementSibling;
+      if (menu && menu.tagName === 'UL') {
+        menu.style.display = isExpanded ? 'none' : 'block';
+      }
+    });
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.front-nav')) {
+      document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+        toggle.setAttribute('aria-expanded', 'false');
+        const menu = toggle.nextElementSibling;
+        if (menu && menu.tagName === 'UL') {
+          menu.style.display = 'none';
+        }
+      });
+    }
+  });
+
+  // Optional: Highlight active link on page load
+  document.querySelectorAll('.front-nav a').forEach(link => {
+    if (link.href === window.location.href) {
+      link.parentElement.classList.add('active');
+    }
+  });
+
+
+  // our services pointer
+  
+  // Simple SPA router (no dependencies)
+  function renderPage() {
+    const path = window.location.pathname;
+    
+    // Hide all page sections
+    document.querySelectorAll('.page-section').forEach(el => {
+      el.style.display = 'none';
+    });
+
+    // Show matching section
+    const pageId = path === '/' || path === '/index.html' 
+      ? 'home' 
+      : path.substring(1); // removes leading '/'
+
+    const targetSection = document.getElementById(pageId + '-section');
+    if (targetSection) {
+      targetSection.style.display = 'block';
+    } else {
+      // Fallback to home
+      document.getElementById('home-section').style.display = 'block';
+    }
+
+    // Update active nav link
+    document.querySelectorAll('.mainmenu a').forEach(link => {
+      link.parentElement.classList.toggle('active', 
+        link.getAttribute('href') === path || 
+        (path === '/' && link.getAttribute('href') === './')
+      );
+    });
+  }
+
+  // Handle back/forward buttons
+  window.addEventListener('popstate', renderPage);
+
+  // Run on load
+  document.addEventListener('DOMContentLoaded', () => {
+    // Optional: smooth scroll on anchor clicks
+    document.body.addEventListener('click', e => {
+      if (e.target.matches('a[href^="/"]:not([href="/"])')) {
+        e.preventDefault();
+        const href = e.target.getAttribute('href');
+        window.history.pushState({}, '', href);
+        renderPage();
+      }
+    });
+
+    renderPage();
+  });
+
+
+
+this is the head.html, while head.html, center.html and foot.html are in the partials folder which is then inside the root folder like all the others 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sherrick Web</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="top-head">
+  <!-- Logo -->
+  <div class="logo">
+    <img src="\sherrick-logo.png" width="300px" height="auto" alt="Sherrick Web">
+  </div>
+
+  <!-- Contact Section (Phones + Separator + Emails + Socials) -->
+  <div class="contact-sections">
+    <!-- Phone Numbers -->
+    <div class="calls">
+      <div class="call">
+        <i class="bi bi-telephone fs-2 text-primary"></i>
+        <span>+254 111 808 737</span>
+      </div>
+      <div class="call">
+        <i class="bi bi-phone fs-2 text-primary"></i>
+        <span>+254 114 531 335</span>
+      </div>
+    </div>
+
+    <!-- Vertical Separator (Orange) -->
+    <div class="separator"></div>
+
+    <!-- Email Addresses -->
+    <div class="emails">
+      <div class="email">
+        <i class="bi bi-envelope fs-2 text-primary"></i>
+        <span>info@sherrickweb.co.ke</span>
+      </div>
+      <div class="email">
+        <i class="bi bi-mailbox fs-2 text-primary"></i>
+        <span>hello@sherrickweb.co.ke</span>
+      </div>
+    </div>
+
+    <!-- Social Icons (Circles) -->
+    <div class="socials">
+      <a href="#" class="social-link" aria-label="Facebook">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a href="#" class="social-link" aria-label="Twitter">
+        <i class="bi bi-twitter"></i>
+      </a>
+      <a href="#" class="social-link" aria-label="Instagram">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a href="#" class="social-link" aria-label="LinkedIn">
+        <i class="bi bi-linkedin"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-head">
+  <div class="front-nav">
+    <ul class="mainmenu d-flex justify-content-end">
+      <li class="active"><a href="./">Home</a></li>
+      <li><a href="about">About Us</a></li>
+      <li>
+        <a href="javascript:void(0);" class="dropdown-toggle" aria-expanded="false">Our Services</a>
+        <ul>
+          <li><a href="service">All Services</a></li>
+          <li><a href="website-design-service">Website Design</a></li>
+          <li><a href="mobile-app-development">Mobile App Development</a></li>
+          <li><a href="software-development">Software Development</a></li>
+          <li><a href="it-consulting">IT Consulting Services</a></li>
+          <li><a href="graphic-design">Graphic Design</a></li>
+          <li><a href="digital-marketing">Digital Marketing</a></li>
+        </ul>
+      </li>
+      <li><a href="blog">Blog</a></li>
+      <li><a href="contact">Contact Us</a></li>
+    </ul>
+  </div>
+  <div class="last-nav">
+    <div class="geta_quote">
+      <a href="quote">GET QUOTE?</a>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
+
+
+
+this is the center.html
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" text="text/css"href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="include.js" defer></script>
+    <script src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"></script>
+</head>
+<body>
+    
+<main>
+  <!-- Home Page -->
+  <section id="home-section" class="page-section" style="display:block;">
+    <h1>Welcome to Sherrick Web</h1>
+    <p>Your trusted web development partner in Kenya.</p>
+  </section>
+
+  <!-- Website Design Page -->
+  <section id="website-design-service-section" class="page-section" style="display:none;">
+    <h1>Website Design Services</h1>
+    <p>We build responsive, SEO-friendly, and conversion-optimized websites.</p>
+    <ul>
+      <li>✅ Custom UI/UX Design</li>
+      <li>✅ WordPress & Headless CMS</li>
+      <li>✅ E-commerce (WooCommerce, Shopify)</li>
+    </ul>
+  </section>
+
+  <!-- Add more sections as needed -->
+  <section id="mobile-app-development-section" class="page-section" style="display:none;">
+    <h1>Mobile App Development</h1>
+    <p>Native & cross-platform apps with Flutter and React Native.</p>
+  </section>
+</main>
+
+</body>
+</html>
