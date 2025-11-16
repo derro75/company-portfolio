@@ -286,7 +286,7 @@
 }
 
 .footer-column h3 {
-  color: #2200ff; /* Your brand blue */
+  color: #38a93e; /* Your brand blue */
   font-size: 1.25rem;
   margin-bottom: 1.5rem;
   position: relative;
@@ -299,7 +299,7 @@
   left: 0;
   width: 50px;
   height: 2px;
-  background-color: #2200ff; /* Orange accent */
+  background-color: #38a93e; /* Orange accent */
 }
 
 .footer-column p {
@@ -328,13 +328,13 @@
 
 .newsletter input[type="email"]:focus {
   outline: none;
-  border-color: #2200ff;
+  border-color: #38a93e;
   box-shadow: 0 0 0 2px rgba(34, 0, 255, 0.2);
 }
 
 .newsletter button {
   padding: 0.75rem 1.5rem;
-  background-color: #2200ff;
+  background-color: #38a93e;
   color: white;
   border: none;
   border-radius: 4px;
@@ -398,7 +398,7 @@
 }
 
 .contact-info strong {
-  color: #2200ff;
+  color: #38a93e;
 }
 
 .contact-info a {
