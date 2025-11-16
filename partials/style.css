@@ -365,7 +365,7 @@
 }
 
 .footer-column a:hover {
-  color: #2200ff;
+  color: #38a93e;
   padding-left: 0.25rem;
 }
 
@@ -429,13 +429,13 @@
   height: 40px;
   border-radius: 50%;
   border: 1px solid #333;
-  background-color: #1A163A;
+  background-color: #38a93e;
   color: #BBB;
   transition: all 0.2s ease;
 }
 
 .social-icon:hover {
-  background-color: #2200ff;
+  background-color: #38a93e;
   color: white;
   transform: scale(1.1);
 }
