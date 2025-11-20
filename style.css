@@ -453,68 +453,66 @@
   margin: 0.25rem 0;
 }
 
-      /* Responsive */
-      @media (max-width: 800px) {
-        .bottom-head {
-          flex-direction: column;
-          padding: 0.75rem 1rem;
-          gap: 1rem;
-        }
-
-        .front-nav ul {
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 1rem;
-        }
-
-        .front-nav ul ul {
-          position: static;
-          box-shadow: none;
-          border: none;
-          width: 100%;
-          margin-top: 0.5rem;
-        }
-
-        .front-nav ul ul li {
-          width: 100%;
-        }
-      
-
-        .top-head {
-          flex-direction: column;
-          align-items: center;
-          gap: 1rem;
-          padding: 1rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-        }
-        
-        .contact-sections {
-          flex-direction: column;
-          width: 100%;
-          gap: 1rem;
-          height: auto;
-        }
-        
-        .separator {
-          width: 100%;
-          height: 1px;
-          margin: 0.5rem 0;
-          background-color: #3b3b3e;
-        }
-        .dropdown-menu {
-    position: static;
-    box-shadow: none;
-    border: none;
-    margin-top: 0.5rem;
-    background: #f8f9fa;
+@media (max-width: 800px) {
+  .bottom-head {
+    flex-direction: column;
+    padding: 0.75rem 1rem;
+    gap: 1rem;
   }
+
+  .front-nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  /* ❌ REMOVED: .front-nav ul ul block */
+
+  .top-head {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .contact-sections {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    height: auto;
+  }
+  
+  .separator {
+    width: 100%;
+    height: 1px;
+    margin: 0.5rem 0;
+    background-color: #3b3b3e;
+  }
+
+  /* ✅ CORRECTED: dropdown-menu stays absolute on mobile */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    min-width: 200px;
+    z-index: 1000;
+    border-radius: 4px;
+    margin-top: 8px;
+    padding: 0.5rem 0;
+    border: 1px solid #eee;
+  }
+
   .logo img {
-    max-width: 250px; /* Optional: reduce size on mobile for better fit */
+    max-width: 250px;
   }
 
-    .footer-content {
+  .footer-content {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
@@ -529,16 +527,14 @@
   
   .footer-column h3::after {
     width: 30px;
-        left: 50%;
-  transform: translateX(-50%);   /* centers the underline */
-  
+    left: 50%;
+    transform: translateX(-50%);
   }
 
-  .footer-content{
-
+  .footer-content {
     display: flex;
     flex-direction: column;
-    align-items: center;   /* centers horizontally */
+    align-items: center;
     text-align: center;
   }
 }

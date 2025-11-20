@@ -77,13 +77,10 @@ document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
   });
 });
 
-// ✅ FIXED: Mobile-safe dropdown close (robust version)
+// ✅ Keep this — it's correct for your HTML structure
+// Close dropdown when clicking outside .front-nav (not .services-dropdown)
 document.addEventListener('click', function(e) {
-  const servicesDropdown = document.querySelector('.services-dropdown');
-  if (!servicesDropdown) return;
-
-  // Close only if click is outside the entire dropdown container (trigger + menu)
-  if (!servicesDropdown.contains(e.target)) {
+  if (!e.target.closest('.front-nav')) {
     document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
       toggle.setAttribute('aria-expanded', 'false');
       const menu = toggle.nextElementSibling;
