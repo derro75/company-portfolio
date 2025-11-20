@@ -77,8 +77,7 @@ document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
   });
 });
 
-// ✅ Keep this — it's correct for your HTML structure
-// Close dropdown when clicking outside .front-nav (not .services-dropdown)
+// Close dropdown when clicking outside
 document.addEventListener('click', function(e) {
   if (!e.target.closest('.front-nav')) {
     document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
@@ -138,6 +137,14 @@ function renderPage() {
     } catch (e) {
       // Invalid URL (e.g., javascript:), skip
     }
+  });
+
+  // ✅ FIX: Reset dropdown state on every route change (4 lines added)
+  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+    toggle.setAttribute('aria-expanded', 'false');
+  });
+  document.querySelectorAll('.dropdown-menu').forEach(menu => {
+    menu.style.display = 'none';
   });
 }
 
