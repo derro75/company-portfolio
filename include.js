@@ -138,14 +138,6 @@ function renderPage() {
       // Invalid URL (e.g., javascript:), skip
     }
   });
-
-  // ✅ FIX: Reset dropdown state on every route change (4 lines added)
-  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-    toggle.setAttribute('aria-expanded', 'false');
-  });
-  document.querySelectorAll('.dropdown-menu').forEach(menu => {
-    menu.style.display = 'none';
-  });
 }
 
 // Handle back/forward buttons
@@ -153,23 +145,30 @@ window.addEventListener('popstate', renderPage);
 
 // ✅ Initialize router AFTER partials load
 function initRouter() {
-  // Improved SPA link interception (handles href="about", href="/contact", etc.)
+  // ✅ IMPROVED: Reset dropdowns ONLY on SPA navigation click
   document.body.addEventListener('click', function(e) {
     const target = e.target.closest('a[href]');
     if (!target) return;
 
     const href = target.getAttribute('href');
-    // Only intercept internal non-external, non-hash, non-empty links
     if (href && 
         !href.startsWith('#') && 
         !href.startsWith('http') && 
         !href.startsWith('mailto:') && 
         !href.startsWith('tel:') && 
         href !== '' &&
-        href !== './' // let ./ go to / (handled by router)
+        href !== './'
     ) {
       e.preventDefault();
-      // Normalize: ensure path starts with /
+
+      // ✅ Reset dropdown state BEFORE navigating
+      document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+      document.querySelectorAll('.dropdown-menu').forEach(menu => {
+        menu.style.display = 'none';
+      });
+
       let newPath = href;
       if (!newPath.startsWith('/')) {
         newPath = '/' + newPath;
