@@ -144,10 +144,6 @@
         padding: 0.5rem 0;
       }
 
-      .front-nav li:hover > ul,
-      .front-nav li.active > ul {
-        display: block;
-      }
 
       .front-nav ul ul li {
         width: 100%;

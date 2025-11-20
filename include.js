@@ -4,7 +4,6 @@ function includeHTML() {
   const total = elements.length;
 
   if (total === 0) {
-    // No partials found, still dispatch the event
     document.dispatchEvent(new Event("partials-loaded"));
     return;
   }
@@ -18,19 +17,12 @@ function includeHTML() {
       const html = await response.text();
       el.innerHTML = html;
 
-      // ✅ Re-run any scripts inside the included file
       el.querySelectorAll("script").forEach(oldScript => {
         const newScript = document.createElement("script");
-
-        // Copy all attributes (src, data-*, etc.)
         Array.from(oldScript.attributes).forEach(attr =>
           newScript.setAttribute(attr.name, attr.value)
         );
-
-        // Copy inline script content if any
         newScript.text = oldScript.text;
-
-        // Replace old script with the new one so it executes
         oldScript.replaceWith(newScript);
       });
 
@@ -40,7 +32,6 @@ function includeHTML() {
     } finally {
       loaded++;
       if (loaded === total) {
-        // ✅ All partials are loaded
         document.dispatchEvent(new Event("partials-loaded"));
       }
     }
@@ -49,36 +40,8 @@ function includeHTML() {
 
 document.addEventListener("DOMContentLoaded", includeHTML);
 
-//navigation bar drop down
-// Toggle dropdown menus on click (not hover)
-document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-  toggle.addEventListener('click', function(e) {
-    e.preventDefault();
-    
-    // Close other open dropdowns
-    document.querySelectorAll('.dropdown-toggle').forEach(otherToggle => {
-      if (otherToggle !== toggle) {
-        otherToggle.setAttribute('aria-expanded', 'false');
-        const otherMenu = otherToggle.nextElementSibling;
-        if (otherMenu && otherMenu.tagName === 'UL') {
-          otherMenu.style.display = 'none';
-        }
-      }
-    });
-    
-    // Toggle current dropdown
-    const isExpanded = this.getAttribute('aria-expanded') === 'true';
-    this.setAttribute('aria-expanded', !isExpanded);
-    
-    const menu = this.nextElementSibling;
-    if (menu && menu.tagName === 'UL') {
-      menu.style.display = isExpanded ? 'none' : 'block';
-    }
-  });
-});
-
-// Close dropdown when clicking outside
-document.addEventListener('click', function(e) {
+// ✅ Extracted close handler for reuse
+function closeDropdowns(e) {
   if (!e.target.closest('.front-nav')) {
     document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
       toggle.setAttribute('aria-expanded', 'false');
@@ -88,7 +51,46 @@ document.addEventListener('click', function(e) {
       }
     });
   }
-});
+}
+
+// ✅ New: Reinitialize dropdowns after SPA navigation
+function initDropdowns() {
+  // Remove existing listeners by cloning nodes
+  const toggles = document.querySelectorAll('.dropdown-toggle');
+  toggles.forEach(toggle => {
+    const clone = toggle.cloneNode(true);
+    toggle.parentNode.replaceChild(clone, toggle);
+  });
+
+  // Reattach fresh click handlers
+  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      document.querySelectorAll('.dropdown-toggle').forEach(otherToggle => {
+        if (otherToggle !== toggle) {
+          otherToggle.setAttribute('aria-expanded', 'false');
+          const otherMenu = otherToggle.nextElementSibling;
+          if (otherMenu && otherMenu.tagName === 'UL') {
+            otherMenu.style.display = 'none';
+          }
+        }
+      });
+      
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !isExpanded);
+      
+      const menu = this.nextElementSibling;
+      if (menu && menu.tagName === 'UL') {
+        menu.style.display = isExpanded ? 'none' : 'block';
+      }
+    });
+  });
+
+  // Reattach outside-click handler
+  document.removeEventListener('click', closeDropdowns);
+  document.addEventListener('click', closeDropdowns);
+}
 
 // Optional: Highlight active link on page load
 document.querySelectorAll('.front-nav a').forEach(link => {
@@ -97,55 +99,43 @@ document.querySelectorAll('.front-nav a').forEach(link => {
   }
 });
 
-// our services pointer
-
-// Simple SPA router (no dependencies) — ✅ FIXED FOR -section SUFFIX
 function renderPage() {
   const path = window.location.pathname;
   
-  // Hide all page sections
   document.querySelectorAll('.page-section').forEach(el => {
     el.style.display = 'none';
   });
 
-  // Show matching section
   const pageId = path === '/' || path === '/index.html' 
     ? 'home' 
-    : path.substring(1).split('/')[0]; // handles /about/ → 'about'
+    : path.substring(1).split('/')[0];
 
-  // ✅ Look for ID with '-section' suffix
   const targetSection = document.getElementById(pageId + '-section');
   if (targetSection) {
     targetSection.style.display = 'block';
   } else {
-    // Fallback to home-section
     const homeSection = document.getElementById('home-section');
     if (homeSection) homeSection.style.display = 'block';
   }
 
-  // Update active nav link
   document.querySelectorAll('.mainmenu a').forEach(link => {
     const href = link.getAttribute('href');
     if (!href) return;
-    
-    // Normalize link href to absolute path for comparison
     try {
       const linkUrl = new URL(href, window.location.origin);
       const isActive = linkUrl.pathname === path ||
                       (path === '/' && (href === './' || href === 'index.html'));
       link.parentElement.classList.toggle('active', isActive);
-    } catch (e) {
-      // Invalid URL (e.g., javascript:), skip
-    }
+    } catch (e) {}
   });
+
+  // ✅ Critical: Reinitialize dropdowns after every navigation
+  initDropdowns();
 }
 
-// Handle back/forward buttons
 window.addEventListener('popstate', renderPage);
 
-// ✅ Initialize router AFTER partials load
 function initRouter() {
-  // ✅ IMPROVED: Reset dropdowns ONLY on SPA navigation click
   document.body.addEventListener('click', function(e) {
     const target = e.target.closest('a[href]');
     if (!target) return;
@@ -161,14 +151,6 @@ function initRouter() {
     ) {
       e.preventDefault();
 
-      // ✅ Reset dropdown state BEFORE navigating
-      document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-        toggle.setAttribute('aria-expanded', 'false');
-      });
-      document.querySelectorAll('.dropdown-menu').forEach(menu => {
-        menu.style.display = 'none';
-      });
-
       let newPath = href;
       if (!newPath.startsWith('/')) {
         newPath = '/' + newPath;
@@ -181,10 +163,8 @@ function initRouter() {
   renderPage();
 }
 
-// Wait for partials to load first
 document.addEventListener('partials-loaded', initRouter);
 
-// Fallback: if no partials, run after short delay
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     if (!window.routerInitialized) {
