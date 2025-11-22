@@ -196,51 +196,6 @@
         transform: translateY(-1px);
       }
 
-      .dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: white;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  min-width: 220px;
-  z-index: 1000;
-  border-radius: 4px;
-  margin-top: 8px;
-  padding: 0.5rem 0;
-  border: 1px solid #eee;
-}
-
-.dropdown-menu li {
-  list-style: none;
-  width: 100%;
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 0.75rem 1.5rem;
-  color: #555;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: all 0.2s ease;
-}
-
-.dropdown-menu a:hover {
-  background-color: #f8f9fa;
-  color: #2200ff;
-  padding-left: 1.75rem;
-}
-
-/* Services dropdown with chevron */
-.dropdown-toggle .bi-chevron-down {
-  transition: transform 0.2s ease;
-  font-size: 0.75em;
-}
-
-[aria-expanded="true"] .bi-chevron-down {
-  transform: rotate(180deg);
-}
 
 /* Active nav item */
 .mainmenu .active > a {
@@ -503,13 +458,7 @@
           margin: 0.5rem 0;
           background-color: #3b3b3e;
         }
-        .dropdown-menu {
-    position: static;
-    box-shadow: none;
-    border: none;
-    margin-top: 0.5rem;
-    background: #f8f9fa;
-  }
+
   .logo img {
     max-width: 250px; /* Optional: reduce size on mobile for better fit */
   }
@@ -540,5 +489,66 @@
     flex-direction: column;
     align-items: center;   /* centers horizontally */
     text-align: center;
+  }
+}
+
+
+
+      .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  min-width: 220px;
+  z-index: 1000;
+  border-radius: 4px;
+  margin-top: 8px;
+  padding: 0.5rem 0;
+  border: 1px solid #eee;
+}
+
+.dropdown-menu li {
+  list-style: none;
+  width: 100%;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: #555;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f8f9fa;
+  color: #2200ff;
+  padding-left: 1.75rem;
+}
+
+/* Services dropdown with chevron */
+.dropdown-toggle .bi-chevron-down {
+  transition: transform 0.2s ease;
+  font-size: 0.75em;
+}
+
+[aria-expanded="true"] .bi-chevron-down {
+  transform: rotate(180deg);
+}
+
+
+
+      @media (max-width: 800px) {
+
+        .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    margin-top: 0.5rem;
+    background: #f8f9fa;
   }
 }
