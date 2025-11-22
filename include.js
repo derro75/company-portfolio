@@ -40,128 +40,135 @@ function includeHTML() {
 
 document.addEventListener("DOMContentLoaded", includeHTML);
 
-// ✅ Mobile Menu Logic
+// === MOBILE MENU LOGIC ===
 let isMobileMenuOpen = false;
 
 function initMobileMenu() {
-  const hamburger = document.querySelector('.hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
-  const closeBtn = mobileMenu.querySelector('.close-btn');
-  const servicesToggle = mobileMenu.querySelector('.mobile-services-toggle');
-  const servicesDropdown = mobileMenu.querySelector('.mobile-services-dropdown');
+  const closeBtn = mobileMenu?.querySelector('.close-btn');
+  const servicesToggle = mobileMenu?.querySelector('.mobile-services-toggle');
+  const servicesDropdown = mobileMmenu?.querySelector('.mobile-services-dropdown');
 
-  if (!hamburger || !mobileMenu || !closeBtn || !servicesToggle) return;
+  // Add hamburger to .geta_quote if not exists
+  const quoteContainer = document.querySelector('.geta_quote');
+  if (quoteContainer && !quoteContainer.querySelector('.hamburger')) {
+    const hamburger = document.createElement('div');
+    hamburger.className = 'hamburger';
+    hamburger.innerHTML = '<div></div><div></div><div></div>';
+    quoteContainer.appendChild(hamburger);
 
-  // Toggle mobile menu
-  hamburger.addEventListener('click', () => {
-    isMobileMenuOpen = !isMobileMenuOpen;
-    mobileMenu.style.display = isMobileMenuOpen ? 'block' : 'none';
-  });
-
-  // Close on X click
-  closeBtn.addEventListener('click', () => {
-    isMobileMenuOpen = false;
-    mobileMenu.style.display = 'none';
-  });
-
-  // Toggle services dropdown in mobile menu
-  servicesToggle.addEventListener('click', () => {
-    const isExpanded = servicesDropdown.style.display === 'block';
-    servicesDropdown.style.display = isExpanded ? 'none' : 'block';
-    const chevron = servicesToggle.querySelector('.bi-chevron-down');
-    if (chevron) {
-      chevron.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
-    }
-  });
-
-  // Close menu on link click
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      isMobileMenuOpen = false;
-      mobileMenu.style.display = 'none';
+    hamburger.addEventListener('click', () => {
+      mobileMenu.style.display = 'block';
+      isMobileMenuOpen = true;
     });
-  });
-}
+  }
 
-// ✅ Desktop Dropdown Logic (unchanged)
-function initDesktopDropdowns() {
-  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-    toggle.addEventListener('click', function(e) {
-      e.preventDefault();
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      mobileMenu.style.display = 'none';
+      isMobileMenuOpen = false;
+    });
+  }
+
+  if (servicesToggle && servicesDropdown) {
+    servicesToggle.addEventListener('click', () => {
+      const isExpanded = servicesToggle.getAttribute('aria-expanded') === 'true';
+      servicesToggle.setAttribute('aria-expanded', !isExpanded);
+      servicesDropdown.style.display = isExpanded ? 'none' : 'block';
       
-      document.querySelectorAll('.dropdown-toggle').forEach(otherToggle => {
-        if (otherToggle !== toggle) {
-          otherToggle.setAttribute('aria-expanded', 'false');
-          const otherMenu = otherToggle.nextElementSibling;
-          if (otherMenu && otherMenu.tagName === 'UL') {
-            otherMenu.style.display = 'none';
-          }
-        }
-      });
-      
-      const isExpanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', !isExpanded);
-      
-      const menu = this.nextElementSibling;
-      if (menu && menu.tagName === 'UL') {
-        menu.style.display = isExpanded ? 'none' : 'block';
+      const chevron = servicesToggle.querySelector('.bi-chevron-down');
+      if (chevron) {
+        chevron.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
       }
     });
-  });
+  }
 
-  document.addEventListener('click', function(e) {
-    if (!e.target.closest('.front-nav')) {
-      document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-        toggle.setAttribute('aria-expanded', 'false');
-        const menu = toggle.nextElementSibling;
-        if (menu && menu.tagName === 'UL') {
-          menu.style.display = 'none';
-        }
-      });
-    }
+  // Close menu on link click
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.style.display = 'none';
+      isMobileMenuOpen = false;
+    });
   });
 }
 
-// ✅ Initialize based on screen size
+// === DESKTOP DROPDOWN LOGIC ===
+function initDesktopDropdowns() {
+  // Remove any existing listeners to prevent duplicates
+  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+    toggle.removeEventListener('click', handleDropdownClick);
+  });
+
+  // Attach fresh listeners
+  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', handleDropdownClick);
+  });
+
+  // Reattach outside-click handler
+  document.removeEventListener('click', handleOutsideClick);
+  document.addEventListener('click', handleOutsideClick);
+}
+
+function handleDropdownClick(e) {
+  e.preventDefault();
+  
+  const toggle = e.currentTarget;
+  
+  // Close other open dropdowns
+  document.querySelectorAll('.dropdown-toggle').forEach(otherToggle => {
+    if (otherToggle !== toggle) {
+      otherToggle.setAttribute('aria-expanded', 'false');
+      const otherMenu = otherToggle.nextElementSibling;
+      if (otherMenu && otherMenu.tagName === 'UL') {
+        otherMenu.style.display = 'none';
+      }
+    }
+  });
+  
+  // Toggle current dropdown
+  const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+  toggle.setAttribute('aria-expanded', !isExpanded);
+  
+  const menu = toggle.nextElementSibling;
+  if (menu && menu.tagName === 'UL') {
+    menu.style.display = isExpanded ? 'none' : 'block';
+  }
+}
+
+function handleOutsideClick(e) {
+  if (!e.target.closest('.front-nav')) {
+    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+      toggle.setAttribute('aria-expanded', 'false');
+      const menu = toggle.nextElementSibling;
+      if (menu && menu.tagName === 'UL') {
+        menu.style.display = 'none';
+      }
+    });
+  }
+}
+
+// === RESPONSIVE INITIALIZATION ===
 function updateLayout() {
   const isMobile = window.innerWidth < 800;
 
   if (isMobile) {
-    // Hide desktop dropdown
-    document.querySelectorAll('.dropdown-menu').forEach(menu => {
-      menu.style.display = 'none';
-    });
-    // Show hamburger
-    const hamburgerContainer = document.querySelector('.geta_quote');
-    if (hamburgerContainer) {
-      let hamburger = hamburgerContainer.querySelector('.hamburger');
-      if (!hamburger) {
-        hamburger = document.createElement('div');
-        hamburger.className = 'hamburger';
-        hamburger.innerHTML = '<div></div><div></div><div></div>';
-        hamburgerContainer.appendChild(hamburger);
-      }
-    }
+    // Hide desktop nav
+    const frontNav = document.querySelector('.front-nav');
+    if (frontNav) frontNav.style.display = 'none';
+    
+    // Show hamburger + init mobile menu
     initMobileMenu();
   } else {
-    // Restore desktop dropdown
+    // Show desktop nav
+    const frontNav = document.querySelector('.front-nav');
+    if (frontNav) frontNav.style.display = '';
+    
+    // Init desktop dropdowns
     initDesktopDropdowns();
   }
 }
 
-// Run on load and resize
-document.addEventListener('DOMContentLoaded', () => {
-  updateLayout();
-  window.addEventListener('resize', updateLayout);
-});
-
-// Optional: Highlight active link on page load
-document.querySelectorAll('.front-nav a').forEach(link => {
-  if (link.href === window.location.href) {
-    link.parentElement.classList.add('active');
-  }
-});
-
+// === SPA ROUTER ===
 function renderPage() {
   const path = window.location.pathname;
   
@@ -223,8 +230,17 @@ function initRouter() {
   renderPage();
 }
 
-document.addEventListener('partials-loaded', initRouter);
+// === INITIALIZATION SEQUENCE ===
+// Run after partials are loaded
+document.addEventListener('partials-loaded', () => {
+  updateLayout(); // Initialize layout based on screen size
+  initRouter();   // Initialize SPA router
+  
+  // Also run on resize
+  window.addEventListener('resize', updateLayout);
+});
 
+// Fallback: if no partials, run after short delay
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     if (!window.routerInitialized) {
