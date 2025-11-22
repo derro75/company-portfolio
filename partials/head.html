@@ -29,10 +29,10 @@
     </div>
 
     <div class="socials">
-      <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
-      <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
-      <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
-      <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+      <a href="#" class="social-link" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="social-link" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+      <a href="#" class="social-link" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      <a href="#" class="social-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
     </div>
   </div>
 </div>
@@ -49,14 +49,14 @@
         </a>
         <ul class="dropdown-menu">
           <li><a href="service">All Services</a></li>
-          <li><a href="website-development">Website Develoment</a></li>
-          <li><a href="UX-UI">User-Experience/ User-Interface</a></li>
+          <li><a href="website-development">Website Development</a></li>
+          <li><a href="UX-UI">User Experience / Interface</a></li>
           <li><a href="SEO">Search Engine Optimization</a></li>
           <li><a href="hosting-domain">Hosting and Domain</a></li>
           <li><a href="graphic-design">Graphic Design</a></li>
           <li><a href="digital-marketing">Digital Marketing</a></li>
           <li><a href="mobile-app-development">Mobile App Development</a></li>
-          <li><a href="it-consulting">IT consulting</a></li>
+          <li><a href="it-consulting">IT Consulting</a></li>
         </ul>
       </li>
 
@@ -72,21 +72,50 @@
   </div>
 </div>
 
+<!-- ✅ Mobile Menu Overlay (hidden by default) -->
+<div id="mobile-menu" class="mobile-menu-overlay">
+  <div class="mobile-menu-content">
+    <button class="close-btn" aria-label="Close menu">&times;</button>
+    <ul class="mobile-menu-list">
+      <li><a href="./">Home</a></li>
+      <li><a href="about">About Us</a></li>
+      <li class="mobile-services-item">
+        <button class="mobile-services-toggle" aria-expanded="false">
+          Our Services <i class="bi bi-chevron-down"></i>
+        </button>
+        <ul class="mobile-services-dropdown">
+          <li><a href="service">All Services</a></li>
+          <li><a href="website-development">Website Development</a></li>
+          <li><a href="UX-UI">User Experience / Interface</a></li>
+          <li><a href="SEO">Search Engine Optimization</a></li>
+          <li><a href="hosting-domain">Hosting and Domain</a></li>
+          <li><a href="graphic-design">Graphic Design</a></li>
+          <li><a href="digital-marketing">Digital Marketing</a></li>
+          <li><a href="mobile-app-development">Mobile App Development</a></li>
+          <li><a href="it-consulting">IT Consulting</a></li>
+        </ul>
+      </li>
+      <li><a href="blog">Blog</a></li>
+      <li><a href="contact">Contact Us</a></li>
+    </ul>
+  </div>
+</div>
+
 <main>
-  <!-- Home Page (newly added -section) -->
+  <!-- Home Page -->
   <section id="home-section" class="page-section">
     <h1>Welcome to Sherrick Web</h1>
     <p>Your trusted web development partner in Kenya.</p>
   </section>
 
-  <!-- All service sections now have -section suffix -->
+  <!-- Service Sections (all with -section suffix) -->
   <section id="service-section" class="page-section">
-    <h1>Sherrick Web services</h1>
-    <p>Your trusted web development partner in Kenya.</p>
+    <h1>All Services</h1>
+    <p>Comprehensive web and digital solutions.</p>
   </section>
 
   <section id="website-development-section" class="page-section">
-    <h1>Website Design Services</h1>
+    <h1>Website Development</h1>
     <p>We build responsive, SEO-friendly, and conversion-optimized websites.</p>
     <ul>
       <li>✅ Custom UI/UX Design</li>
@@ -96,18 +125,18 @@
   </section>
 
   <section id="UX-UI-section" class="page-section">
-    <h1>Mobile App Development</h1>
-    <p>Native & cross-platform apps with Flutter and React Native.</p>
+    <h1>UX/UI Design</h1>
+    <p>Intuitive, user-centered interface and experience design.</p>
   </section>
 
   <section id="SEO-section" class="page-section">
-    <h1>Mobile App Development</h1>
-    <p>Native & cross-platform apps with Flutter and React Native.</p>
+    <h1>Search Engine Optimization</h1>
+    <p>Improve visibility and organic traffic with strategic SEO.</p>
   </section>
   
   <section id="hosting-domain-section" class="page-section">
-    <h1>All Services</h1>
-    <p>Comprehensive web and digital solutions.</p>
+    <h1>Hosting & Domain</h1>
+    <p>Reliable, fast, and secure web hosting solutions.</p>
   </section>
   
   <section id="graphic-design-section" class="page-section">
@@ -121,12 +150,12 @@
   </section>
 
   <section id="mobile-app-development-section" class="page-section">
-    <h1>Software Development</h1>
-    <p>Custom software solutions for your business needs.</p>
+    <h1>Mobile App Development</h1>
+    <p>Native & cross-platform apps with Flutter and React Native.</p>
   </section>
 
   <section id="it-consulting-section" class="page-section">
-    <h1>IT Consulting Services</h1>
+    <h1>IT Consulting</h1>
     <p>Strategic technology consulting and implementation.</p>
   </section>
   
