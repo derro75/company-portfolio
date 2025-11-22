@@ -77,18 +77,7 @@ document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
   });
 });
 
-// Close dropdown when clicking outside
-document.addEventListener('click', function(e) {
-  if (!e.target.closest('.front-nav')) {
-    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-      toggle.setAttribute('aria-expanded', 'false');
-      const menu = toggle.nextElementSibling;
-      if (menu && menu.tagName === 'UL') {
-        menu.style.display = 'none';
-      }
-    });
-  }
-});
+
 
 // Optional: Highlight active link on page load
 document.querySelectorAll('.front-nav a').forEach(link => {
