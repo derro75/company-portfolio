@@ -453,96 +453,6 @@
   margin: 0.25rem 0;
 }
 
-      /* Responsive */
-      @media (max-width: 800px) {
-        .bottom-head {
-          flex-direction: column;
-          padding: 0.75rem 1rem;
-          gap: 1rem;
-        }
-
-        .front-nav ul {
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 1rem;
-        }
-
-        .front-nav ul ul {
-          position: static;
-          box-shadow: none;
-          border: none;
-          width: 100%;
-          margin-top: 0.5rem;
-        }
-
-        .front-nav ul ul li {
-          width: 100%;
-        }
-      
-
-        .top-head {
-          flex-direction: column;
-          align-items: center;
-          gap: 1rem;
-          padding: 1rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-        }
-        
-        .contact-sections {
-          flex-direction: column;
-          width: 100%;
-          gap: 1rem;
-          height: auto;
-        }
-        
-        .separator {
-          width: 100%;
-          height: 1px;
-          margin: 0.5rem 0;
-          background-color: #3b3b3e;
-        }
-        .dropdown-menu {
-    position: static;
-    box-shadow: none;
-    border: none;
-    margin-top: 0.5rem;
-    background: #f8f9fa;
-  }
-  .logo img {
-    max-width: 250px; /* Optional: reduce size on mobile for better fit */
-  }
-
-    .footer-content {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .newsletter form {
-    flex-direction: column;
-  }
-  
-  .newsletter input[type="email"] {
-    min-width: auto;
-  }
-  
-  .footer-column h3::after {
-    width: 30px;
-        left: 50%;
-  transform: translateX(-50%);   /* centers the underline */
-  
-  }
-
-  .footer-content{
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;   /* centers horizontally */
-    text-align: center;
-  }
-}
-
 /* === MOBILE MENU STYLES === */
 .mobile-menu-overlay {
   position: fixed;
@@ -642,59 +552,169 @@
 
 /* === RESPONSIVE === */
 @media (max-width: 799px) {
-  .bottom-head {
-    flex-direction: row;
+  .front-nav {
+    display: block; /* 👈 Not 'none' — we'll control visibility via JS */
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .mainmenu {
+    flex-direction: column;
+    gap: 0;
+    align-items: flex-start;
+  }
+
+  .mainmenu > li {
+    width: 100%;
+    border-bottom: 1px solid #eee;
+  }
+
+  .mainmenu > li:last-child {
+    border-bottom: none;
+  }
+
+  .mainmenu a {
+    padding: 1rem 0;
+    font-size: 1.1rem;
+    color: #333;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.75rem 1rem;
   }
 
-  .front-nav {
-    display: none; /* Hide desktop nav on mobile */
+  /* Hide desktop dropdown arrow on mobile */
+  .mainmenu .dropdown-toggle::after {
+    display: none;
   }
 
-  .geta_quote {
-    display: flex;
-    align-items: center;
-  }
-
-  .mobile-menu-toggle {
-  display: block;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  margin-left: 1rem;
-}
-
-  /* Ensure dropdown is hidden */
+  /* Services dropdown on mobile */
   .dropdown-menu {
-    display: none !important;
+    display: none;
+    flex-direction: column;
+    padding-left: 1.5rem;
+    margin-top: 0;
+    border: none;
+    box-shadow: none;
+    background: transparent;
   }
 
-  /* Improve mobile spacing */
-  .top-head {
-    padding: 1rem;
+  .dropdown-menu li {
+    width: 100%;
+    border: none;
   }
 
-  .logo img {
-    max-width: 220px;
-  }
-
-  .contact-sections {
-    gap: 0.75rem;
-  }
-
-  .call, .email {
-    gap: 0.25rem;
-    font-size: 0.85rem;
-  }
-
-  .call i, .email i {
+  .dropdown-menu a {
+    padding: 0.75rem 0;
     font-size: 1rem;
+    color: #555;
+    font-weight: 500;
   }
 
-  .separator {
-    height: 40px;
+  .dropdown-menu a:hover {
+    color: #2200ff;
+    background: transparent;
+    padding-left: 0;
   }
+
+  /* Mobile toggle button */
+  .mobile-menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: auto; /* Push to right */
+  }
+
+  /* Hide nav by default on mobile */
+  .front-nav.collapsed {
+    display: none;
+  }
+        .bottom-head {
+          flex-direction: column;
+          padding: 0.75rem 1rem;
+          gap: 1rem;
+        }
+
+        .front-nav ul {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1rem;
+        }
+
+        .front-nav ul ul {
+          position: static;
+          box-shadow: none;
+          border: none;
+          width: 100%;
+          margin-top: 0.5rem;
+        }
+
+        .front-nav ul ul li {
+          width: 100%;
+        }
+      
+
+        .top-head {
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+          padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        
+        .contact-sections {
+          flex-direction: column;
+          width: 100%;
+          gap: 1rem;
+          height: auto;
+        }
+        
+        .separator {
+          width: 100%;
+          height: 1px;
+          margin: 0.5rem 0;
+          background-color: #3b3b3e;
+        }
+        .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    margin-top: 0.5rem;
+    background: #f8f9fa;
+  }
+  .logo img {
+    max-width: 250px; /* Optional: reduce size on mobile for better fit */
+  }
+
+    .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .newsletter form {
+    flex-direction: column;
+  }
+  
+  .newsletter input[type="email"] {
+    min-width: auto;
+  }
+  
+  .footer-column h3::after {
+    width: 30px;
+        left: 50%;
+  transform: translateX(-50%);   /* centers the underline */
+  
+  }
+
+  .footer-content{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* centers horizontally */
+    text-align: center;
+  }
+
+
 }

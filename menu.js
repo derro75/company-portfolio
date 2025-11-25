@@ -1,60 +1,41 @@
-// Mobile Menu Toggle
-function initMobileMenu() {
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle'); // Changed from .hamburger
-  const closeBtn = document.querySelector('.close-btn');
-  const mobileServicesToggle = document.querySelector('.mobile-services-toggle');
+document.addEventListener('partials-loaded', function() {
+  const toggleBtn = document.querySelector('.mobile-menu-toggle');
+  const nav = document.querySelector('.front-nav');
 
-  // Open mobile menu
-  if (mobileMenuToggle) {
-    mobileMenuToggle.addEventListener('click', () => {
-      mobileMenu.style.display = 'flex'; // or 'block'
-      document.body.style.overflow = 'hidden'; // Prevent scrolling
-    });
-  }
+  if (!toggleBtn || !nav) return;
 
-  // Close mobile menu
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-      mobileMenu.style.display = 'none';
-      document.body.style.overflow = 'auto'; // Re-enable scrolling
-    });
-  }
+  // Toggle nav visibility
+  toggleBtn.addEventListener('click', () => {
+    const isCollapsed = nav.classList.contains('collapsed');
+    nav.classList.toggle('collapsed', !isCollapsed);
 
-  // Toggle mobile services dropdown
-if (mobileServicesToggle) {
-  mobileServicesToggle.addEventListener('click', function(e) {
-    e.preventDefault();
-    console.log("Our Services toggle clicked!"); // 👈 Add this line
-
-    const isExpanded = this.getAttribute('aria-expanded') === 'true';
-    this.setAttribute('aria-expanded', !isExpanded);
-
-    const dropdown = this.nextElementSibling;
-    if (dropdown && dropdown.classList.contains('mobile-services-dropdown')) {
-      dropdown.style.display = isExpanded ? 'none' : 'block';
-      console.log("Dropdown display set to:", dropdown.style.display); // 👈 Add this
-    }
-  });
-}
-
-  // Close mobile menu when clicking outside
-  mobileMenu.addEventListener('click', function(e) {
-    if (e.target === mobileMenu) {
-      mobileMenu.style.display = 'none';
-      document.body.style.overflow = 'auto';
+    // Optional: animate chevron or icon
+    const img = toggleBtn.querySelector('img');
+    if (img) {
+      // You could swap to 'close.png' if you have one
+      // Or rotate via CSS class
     }
   });
 
-  // Close mobile menu when clicking a link
-  const mobileLinks = document.querySelectorAll('#mobile-menu .mobile-menu-list a');
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.style.display = 'none';
-      document.body.style.overflow = 'auto';
+  // Toggle desktop-style dropdowns on mobile (touch-friendly)
+  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const menu = this.nextElementSibling;
+      if (!menu || !menu.classList.contains('dropdown-menu')) return;
+
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      const newExpanded = !isExpanded;
+
+      this.setAttribute('aria-expanded', newExpanded);
+      menu.style.display = newExpanded ? 'flex' : 'none';
+
+      // Optional: rotate chevron
+      const chevron = this.querySelector('.bi-chevron-down');
+      if (chevron) {
+        chevron.style.transform = newExpanded ? 'rotate(180deg)' : 'rotate(0deg)';
+      }
     });
   });
-}
-
-// Initialize mobile menu after DOM loads
-document.addEventListener('DOMContentLoaded', initMobileMenu);
+});
