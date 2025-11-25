@@ -714,7 +714,6 @@
     background: none;
     border: none;
     cursor: pointer;
-    margin-left: auto; /* Push to right */
   }
 
   /* Hide nav by default on mobile */
