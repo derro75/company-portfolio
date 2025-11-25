@@ -22,18 +22,21 @@ function initMobileMenu() {
   }
 
   // Toggle mobile services dropdown
-  if (mobileServicesToggle) {
-    mobileServicesToggle.addEventListener('click', function(e) {
-      e.preventDefault();
-      const isExpanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', !isExpanded);
+if (mobileServicesToggle) {
+  mobileServicesToggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    console.log("Our Services toggle clicked!"); // 👈 Add this line
 
-      const dropdown = this.nextElementSibling;
-      if (dropdown && dropdown.classList.contains('mobile-services-dropdown')) {
-        dropdown.style.display = isExpanded ? 'none' : 'block';
-      }
-    });
-  }
+    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', !isExpanded);
+
+    const dropdown = this.nextElementSibling;
+    if (dropdown && dropdown.classList.contains('mobile-services-dropdown')) {
+      dropdown.style.display = isExpanded ? 'none' : 'block';
+      console.log("Dropdown display set to:", dropdown.style.display); // 👈 Add this
+    }
+  });
+}
 
   // Close mobile menu when clicking outside
   mobileMenu.addEventListener('click', function(e) {
