@@ -1,4 +1,7 @@
-     .top-head {
+html {
+  scroll-behavior: smooth;
+}
+.top-head {
         display: flex;
         align-items: center;
         justify-content: space-between;

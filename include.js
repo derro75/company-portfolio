@@ -108,27 +108,54 @@ function renderPage() {
     el.style.display = 'none';
   });
 
-  // Show matching section
+  // Show matching section and auto-scroll
   const pageId = path === '/' || path === '/index.html' 
     ? 'home' 
-    : path.substring(1).split('/')[0]; // handles /about/ → 'about'
+    : path.substring(1).split('/')[0];
 
-  // ✅ Look for ID with '-section' suffix
-  const targetSection = document.getElementById(pageId + '-section');
-  if (targetSection) {
-    targetSection.style.display = 'block';
-  } else {
-    // Fallback to home-section
-    const homeSection = document.getElementById('home-section');
-    if (homeSection) homeSection.style.display = 'block';
+  let targetSection = document.getElementById(pageId + '-section');
+  if (!targetSection) {
+    targetSection = document.getElementById('home-section'); // fallback
   }
 
-  // Update active nav link
+  if (targetSection) {
+    targetSection.style.display = 'block';
+
+    // ✅ Auto-scroll to section after render
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        targetSection.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      }, 50);
+    });
+  }
+
+
+if (targetSection) {
+  targetSection.style.display = 'block';
+
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      if (pageId === 'home') {
+        // Scroll to very top (not a section)
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        // Scroll to section
+        targetSection.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      }
+    }, 50);
+  });
+}
+  // Update active nav link (unchanged)
   document.querySelectorAll('.mainmenu a').forEach(link => {
     const href = link.getAttribute('href');
     if (!href) return;
     
-    // Normalize link href to absolute path for comparison
     try {
       const linkUrl = new URL(href, window.location.origin);
       const isActive = linkUrl.pathname === path ||
@@ -145,31 +172,38 @@ window.addEventListener('popstate', renderPage);
 
 // ✅ Initialize router AFTER partials load
 function initRouter() {
-  // Improved SPA link interception (handles href="about", href="/contact", etc.)
-  document.body.addEventListener('click', function(e) {
-    const target = e.target.closest('a[href]');
-    if (!target) return;
+// ✅ Enhanced SPA link interception — excludes dropdowns & home
+document.body.addEventListener('click', function(e) {
+  const target = e.target.closest('a[href]');
+  if (!target) return;
 
-    const href = target.getAttribute('href');
-    // Only intercept internal non-external, non-hash, non-empty links
-    if (href && 
-        !href.startsWith('#') && 
-        !href.startsWith('http') && 
-        !href.startsWith('mailto:') && 
-        !href.startsWith('tel:') && 
-        href !== '' &&
-        href !== './' // let ./ go to / (handled by router)
-    ) {
-      e.preventDefault();
-      // Normalize: ensure path starts with /
-      let newPath = href;
-      if (!newPath.startsWith('/')) {
-        newPath = '/' + newPath;
-      }
-      window.history.pushState({}, '', newPath);
-      renderPage();
-    }
-  });
+  const href = target.getAttribute('href');
+  
+  // ❌ Skip if:
+  // - It's a dropdown toggle (javascript:void or has .dropdown-toggle)
+  // - It's the Home link ("./", "", or "#")
+  const isDropdown = target.classList.contains('dropdown-toggle') || 
+                    href === 'javascript:void(0);';
+  const isHome = href === './' || href === '' || href === '#';
+
+  if (isDropdown || isHome) {
+    return; // Let browser/native JS handle it
+  }
+
+  // ✅ Only intercept true page-like links
+  if (href && 
+      !href.startsWith('#') && 
+      !href.startsWith('http') && 
+      !href.startsWith('mailto:') && 
+      !href.startsWith('tel:') &&
+      href !== 'javascript:void(0);'
+  ) {
+    e.preventDefault();
+    let newPath = href.startsWith('/') ? href : '/' + href;
+    window.history.pushState({}, '', newPath);
+    renderPage();
+  }
+});
 
   renderPage();
 }
