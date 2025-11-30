@@ -556,7 +556,104 @@ html {
     display: none;
 
   }
+    .container {
+            max-width: 900px;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
 
+        /* Puzzle piece background pattern */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0 h100 v100 h-100 z M0,0 v50 c0,-25 25,-25 25,0 h50 c25,0 25,25 0,25 v50 h-50 c-25,0 -25,-25 0,-25 h-25 c-25,0 -25,-25 0,-25 v-25 c0,-25 -25,-25 -25,0 z' fill='%236c6ce6'/%3E%3C/svg%3E");
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            font-family: 'Brush Script MT', cursive;
+            margin: 10px 0 20px;
+            line-height: 1.2;
+            position: relative;
+        }
+
+        .title::after {
+            content: '•';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 20px 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .platform-heading {
+            font-size: 1.2rem;
+            margin-top: 30px;
+            font-weight: 500;
+        }
+
+        /* Bottom rounded elements (simulating the dark shapes at bottom) */
+        .bottom-elements {
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .bottom-element {
+            width: 40%;
+            height: 80px;
+            background-color: #2d2d3a;
+            border-radius: 20px 20px 0 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 15px;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .description {
+                font-size: 1rem;
+            }
+            
+            .bottom-element {
+                width: 45%;
+                height: 60px;
+            }
+            }
 /* === RESPONSIVE === */
 @media (max-width: 799px) {
   .bottom-head {
