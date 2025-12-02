@@ -633,6 +633,378 @@ html {
   }
 
 
+.container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      font-size: 2.25rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--gray-900);
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: var(--gray-700);
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.875rem 1.75rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+      border: 2px solid var(--primary);
+    }
+    .btn-primary:hover {
+      background-color: var(--dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      margin-left: 1rem;
+    }
+    .btn-outline:hover {
+      background-color: var(--primary-light);
+      color: white;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    /* =============== HOME SECTION =============== */
+    #home-section {
+      background: linear-gradient(135deg, #f5f9f5 0%, #e8f5e9 100%);
+      text-align: center;
+      padding: 6rem 0;
+    }
+
+    .home-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .subtitle {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--primary);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .title {
+      font-size: 3rem;
+      margin: 1rem 0;
+      line-height: 1.2;
+    }
+
+    .description {
+      font-size: 1.25rem;
+      color: var(--gray-700);
+      margin: 1.5rem 0 2.5rem;
+    }
+
+    .hero-cta {
+      margin-top: 2rem;
+    }
+
+    /* =============== WHO WE ARE =============== */
+    #who-we-are {
+      background-color: white;
+    }
+
+    .differentiators {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .diff-card {
+      flex: 1 1 300px;
+      background: var(--gray-100);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      text-align: center;
+      max-width: 350px;
+    }
+
+    .diff-card svg {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 1rem;
+      fill: var(--primary);
+    }
+
+    .diff-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    /* =============== SERVICES =============== */
+    #services {
+      background-color: var(--gray-100);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .card-img {
+      height: 180px;
+      background-color: var(--gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      color: var(--gray-700);
+    }
+
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .card-content h3 {
+      font-size: 1.375rem;
+      margin-bottom: 0.75rem;
+      color: var(--gray-900);
+    }
+
+    .card-content p {
+      margin-bottom: 1rem;
+      color: var(--gray-700);
+    }
+
+    .card-link {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    /* =============== ADVANTAGE =============== */
+    #advantage {
+      background-color: white;
+    }
+
+    .advantage-list {
+      max-width: 800px;
+      margin: 2rem auto 0;
+      padding-left: 1.5rem;
+    }
+
+    .advantage-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+
+    .advantage-item svg {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      margin-right: 1rem;
+      fill: var(--primary);
+      margin-top: 0.25rem;
+    }
+
+    .advantage-text h4 {
+      font-size: 1.125rem;
+      margin-bottom: 0.25rem;
+    }
+
+    /* =============== TESTIMONIALS =============== */
+    #testimonials {
+      background-color: var(--gray-100);
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .testimonial-card {
+      background: white;
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 1rem;
+      left: 1.5rem;
+      font-size: 4rem;
+      color: var(--primary-light);
+      opacity: 0.2;
+      font-family: serif;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--gray-900);
+    }
+
+    .testimonial-role {
+      font-size: 0.9rem;
+      color: var(--gray-700);
+    }
+
+    /* =============== CTA SECTION =============== */
+    #cta {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+      color: white;
+      text-align: center;
+    }
+
+    #cta .section-title,
+    #cta .section-subtitle {
+      color: white;
+    }
+
+    /* =============== FOOTER =============== */
+    footer {
+      background-color: var(--gray-900);
+      color: white;
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-col h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1.25rem;
+      position: relative;
+    }
+
+    .footer-col h3::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: var(--primary);
+      margin-top: 0.5rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: white;
+      padding-left: 4px;
+    }
+
+    .contact-info p {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .contact-info svg {
+      margin-right: 0.75rem;
+      width: 18px;
+      height: 18px;
+      fill: var(--primary-light);
+    }
+
+    .newsletter {
+      display: flex;
+      margin-top: 1rem;
+    }
+
+    .newsletter input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: none;
+      border-radius: 4px 0 0 4px;
+    }
+
+    .newsletter button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0 1.25rem;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #444;
+      font-size: 0.875rem;
+      color: #aaa;
+    }
+
+    /* =============== RESPONSIVE =============== */
 
 
 /* === RESPONSIVE === */
@@ -903,5 +1275,10 @@ html {
   }
   
 
-
+.title { font-size: 2.25rem; }
+      .description { font-size: 1.125rem; }
+      .btn-outline { margin-left: 0; margin-top: 1rem; display: block; }
+      .hero-cta { display: flex; flex-direction: column; align-items: center; }
+      section { padding: 3rem 0; }
 }
+
