@@ -996,13 +996,7 @@ html {
       cursor: pointer;
     }
 
-    .copyright {
-      text-align: center;
-      padding-top: 2rem;
-      border-top: 1px solid #444;
-      font-size: 0.875rem;
-      color: #aaa;
-    }
+
 
     /* =============== RESPONSIVE =============== */
 
