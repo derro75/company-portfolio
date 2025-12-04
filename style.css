@@ -1,3 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -971,20 +980,86 @@ html {
       border-radius: 0 4px 4px 0;
       cursor: pointer;
     }
-
-
-
     /* =============== RESPONSIVE =============== */
 
 
 /* === RESPONSIVE === */
 @media (max-width: 799px) {
+  /* Prevent overall page overflow */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Fix container widths */
+  .container {
+    padding: 0 1rem;
+    overflow-x: hidden;
+  }
+  
+  /* Fix footer columns */
+  .footer-content {
+    padding: 0 1rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .footer-column {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .footer-column h3::after {
+    width: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* Fix newsletter */
+  .newsletter form {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .newsletter input[type="email"] {
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .newsletter button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Fix any long text/links that might overflow */
+  .footer-column a,
+  .footer-column p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Fix social icons container */
+  .social-icons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Fix the "Our Services" heading and content if they're too wide */
+  .site-footer h3 {
+    word-wrap: break-word;
+  }
+
   .bottom-head {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center; /* 👈 Center children horizontally */
-    align-items: center;     /* 👈 Vertically center items */
+    justify-content: center;
+    align-items: center;
     padding: 0.75rem 1rem;
     gap: 1rem;
   }
@@ -994,13 +1069,13 @@ html {
     background: none;
     border: none;
     cursor: pointer;
-    margin: 0; /* Remove any auto margins */
+    margin: 0;
   }
 
   .front-nav {
     display: block;
     width: 100%;
-    max-width: 400px; /* Optional: limit width for better mobile UX */
+    max-width: 400px;
     margin: 0;
     padding: 0;
   }
@@ -1034,6 +1109,11 @@ html {
     align-items: center;
   }
 
+  /* Hide desktop dropdown arrow on mobile */
+  .mainmenu .dropdown-toggle::after {
+    display: none;
+  }
+
   .dropdown-menu {
     display: none;
     flex-direction: column;
@@ -1042,6 +1122,7 @@ html {
     border: none;
     box-shadow: none;
     background: transparent;
+    position: static;
   }
 
   .dropdown-menu li {
@@ -1064,191 +1145,52 @@ html {
 
   /* Keep GET QUOTE button on the right */
   .last-nav {
-    margin-left: auto; /* Pushes it to the far right */
+    margin-left: auto;
   }
 
-  .front-nav {
-    display: block; /* 👈 Not 'none' — we'll control visibility via JS */
-    width: 100%;
-    margin-top: 1rem;
-  }
-
-  .mainmenu {
+  .top-head {
     flex-direction: column;
-    gap: 0;
-    align-items: flex-start;
-  }
-
-  .mainmenu > li {
-    width: 100%;
-    border-bottom: 1px solid #eee;
-  }
-
-  .mainmenu > li:last-child {
-    border-bottom: none;
-  }
-
-  .mainmenu a {
-    padding: 1rem 0;
-    font-size: 1.1rem;
-    color: #333;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-  }
-
-  /* Hide desktop dropdown arrow on mobile */
-  .mainmenu .dropdown-toggle::after {
-    display: none;
-  }
-
-  /* Services dropdown on mobile */
-  .dropdown-menu {
-    display: none;
+    gap: 1rem;
+    padding: 1rem;
+    display: flex;
     flex-direction: column;
-    padding-left: 1.5rem;
-    margin-top: 0;
-    border: none;
-    box-shadow: none;
-    background: transparent;
+    justify-content: center;
   }
-
-  .dropdown-menu li {
+  
+  .contact-sections {
+    flex-direction: column;
     width: 100%;
-    border: none;
+    gap: 1rem;
+    height: auto;
+  }
+  
+  .separator {
+    width: 100%;
+    height: 1px;
+    margin: 0.5rem 0;
+    background-color: #3b3b3e;
   }
 
-  .dropdown-menu a {
-    padding: 0.75rem 0;
-    font-size: 1rem;
-    color: #555;
-    font-weight: 500;
+  .logo img {
+    max-width: 250px;
   }
 
-  .dropdown-menu a:hover {
-    color: #2200ff;
-    background: transparent;
-    padding-left: 0;
+  .front-nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
   }
 
-  /* Mobile toggle button */
-  .mobile-menu-toggle {
-    display: block;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  /* Hide nav by default on mobile */
-  .front-nav.collapsed {
-    display: none;
-  }
-        .bottom-head {
-          flex-direction: row;
-          flex-wrap: wrap-reverse;
-          padding: 0.75rem 1rem;
-          gap: 1rem;
-        }
-        
-
-        .front-nav ul {
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 1rem;
-        }
-
-        .front-nav ul ul {
-          position: static;
-          box-shadow: none;
-          border: none;
-          width: 100%;
-          margin-top: 0.5rem;
-        }
-
-        .front-nav ul ul li {
-          width: 100%;
-        }
-      
-
-        .top-head {
-          flex-direction: column;
-          align-items: center;
-          gap: 1rem;
-          padding: 1rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-        }
-        
-        .contact-sections {
-          flex-direction: column;
-          width: 100%;
-          gap: 1rem;
-          height: auto;
-        }
-        
-        .separator {
-          width: 100%;
-          height: 1px;
-          margin: 0.5rem 0;
-          background-color: #3b3b3e;
-        }
-        .dropdown-menu {
+  .front-nav ul ul {
     position: static;
     box-shadow: none;
     border: none;
+    width: 100%;
     margin-top: 0.5rem;
-    background: #f8f9fa;
-  }
-  .logo img {
-    max-width: 250px; /* Optional: reduce size on mobile for better fit */
   }
 
-    .footer-content {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .front-nav ul ul li {
+    width: 100%;
   }
-  
-  .newsletter form {
-    flex-direction: column;
-  }
-  
-  .newsletter input[type="email"] {
-    min-width: auto;
-  }
-  
-  .footer-column h3::after {
-    width: 30px;
-        left: 50%;
-  transform: translateX(-50%);   /* centers the underline */
-  
-  }
-
-  .footer-content{
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;   /* centers horizontally */
-    text-align: center;
-  }
-
-    .home-content{
-      padding: 30px 15px;
-  }
-  
-  .title {
-      font-size: 2rem;
-  }
-  
-  .description {
-      font-size: 1rem;
-  }
-  
-
-.title { font-size: 2.25rem; }
-      .description { font-size: 1.125rem; }
-      .btn-outline { margin-left: 0; margin-top: 1rem; display: block; }
-      .hero-cta { display: flex; flex-direction: column; align-items: center; }
-      section { padding: 3rem 0; }
 }
-
