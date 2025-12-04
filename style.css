@@ -990,7 +990,7 @@ html {
   width: 100%;
   height: 100%;
   object-fit: cover;      /* crops like background-size: cover */
-  object-position:center ;   /* 👈 anchors image at top */
+  object-position:top ;   /* 👈 anchors image at top */
 }
 
 
