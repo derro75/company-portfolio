@@ -992,7 +992,9 @@ html {
   object-fit: cover;      /* crops like background-size: cover */
   object-position:top ;   /* 👈 anchors image at top */
 }
-
+#who-we-are{
+  background-image: url(sherrickweb-img/nairobi-bg.jpg);
+}
 
 /* === RESPONSIVE === */
 @media (max-width: 799px) {
