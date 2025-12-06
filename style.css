@@ -748,7 +748,6 @@ html {
     }
     .hero-cta .line:hover{
         color: #2200ff;
-        
         transform: scale(1.1);
       
     }
