@@ -817,6 +817,7 @@ html {
     }
 
     .service-card {
+      padding-bottom: 70px;
       background: white;
       border-radius: var(--radius);
       overflow: hidden;
@@ -825,7 +826,7 @@ html {
     }
 
     .service-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-15px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
 
@@ -837,9 +838,12 @@ html {
       justify-content: center;
       font-size: 0.875rem;
       color: var(--gray-700);
+
     }
 
-
+    .point-card img{
+            border-radius: 2%;
+    }
     .card-content h3 {
       font-size: 1.375rem;
       margin-bottom: 0.75rem;
