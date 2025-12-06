@@ -729,7 +729,7 @@ html {
       margin-top: 2rem;
       
     }
-    .hero-cta a :hover{
+    .hero-cta a:hover{
 transform: scale(1.1);
 
       
