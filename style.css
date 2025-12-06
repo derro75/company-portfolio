@@ -875,20 +875,6 @@ html {
       max-width: 800px;
     }
 
-    .advantage-item {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 1.5rem;
-    }
-
-    .advantage-item svg {
-      flex-shrink: 0;
-      width: 28px;
-      height: 28px;
-      fill: var(--primary);
-      margin-top: 0.25rem;
-    }
-
     .advantage-text h4 {
       font-size: 1.125rem;
       margin-bottom: 0.25rem;
@@ -1267,6 +1253,7 @@ html {
 
    #who-we-are {
     padding: 3rem 0;
+    background-position: 74%;
   }
 
   #who-we-are .section-title {

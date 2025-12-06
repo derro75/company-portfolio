@@ -1268,6 +1268,7 @@ html {
 
    #who-we-are {
     padding: 3rem 0;
+    background-position: left;
   }
 
   #who-we-are .section-title {
