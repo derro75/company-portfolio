@@ -860,10 +860,16 @@ html {
       font-weight: 600;
       text-decoration: none;
     }
+    #services {
+      padding-bottom: 0%;
 
+    }
     /* =============== ADVANTAGE =============== */
+
     #advantage {
       background-color: white;
+      padding: 0%;
+      margin: 0%;
     }
 
     .advantage-list {
