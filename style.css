@@ -830,6 +830,7 @@ html {
       overflow: hidden;
       box-shadow: var(--shadow);
       transition: var(--transition);
+      align-items: center;
 
     }
 
@@ -849,9 +850,6 @@ html {
 
     }
 
-    .point-card img{
-            border-radius: 2%;
-    }
     .card-content h3 {
       font-size: 1.375rem;
       margin-bottom: 0.75rem;
@@ -1032,13 +1030,17 @@ html {
     /* =============== RESPONSIVE =============== */
 
 .point-card {
-  height: 300px;
+  display: flex;
+  justify-content: center; /* ← centers horizontally */
+  align-items: center;     /* ← centers vertically */
+/* ensures object-fit: cover crops cleanly */
 }
 
 .front-poster {
-
-  object-fit: cover;      /* crops like background-size: cover */
-  object-position:top ;   /* 👈 anchors image at top */
+  border-radius: 2%;
+  width: 100%;
+  height: 100%;
+  object-position: top center; /* better than just 'top' — centers horizontally too */
 }
 #who-we-are{
   background-image: url(sherrickweb-img/nairobi-bg.jpg);
