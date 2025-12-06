@@ -729,6 +729,24 @@ html {
       margin-top: 2rem;
       
     }
+    .hero-cta a :hover{
+transform: scale(1.1);
+
+      
+    }
+    .hero-cta .star{
+        text-decoration: none;
+        color: #2200ff;
+        transform: scale(1.1);
+      
+    }
+    .hero-cta .star:hover{
+
+        color: #0a0a0a;
+        transform: scale(1.1);
+      
+    }
+
 
     /* =============== WHO WE ARE =============== */
     #who-we-are {
