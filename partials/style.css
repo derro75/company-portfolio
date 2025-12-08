@@ -730,9 +730,7 @@ html {
 
 
     /* =============== WHO WE ARE =============== */
-    #who-we-are {
-      background-color: white;
-    }
+
 #who-we-are{
   background-image: url(sherrickweb-img/nairobi-bg.jpg);
   background-repeat: repeat;
@@ -873,9 +871,13 @@ html {
     /* =============== ADVANTAGE =============== */
 
     #advantage {
-      background-color: white;
-      padding: 0%;
-      margin: 0%;
+      
+  background-image: url(sherrickweb-img/nairobi-bg.jpg);
+  background-repeat: repeat;
+  background-position: bottom center;   /* 👈 critical */
+  background-size: auto 100%;           /* or `auto 100%` if you only care about height */
+  padding: 0%;
+  margin: 0%;
     }
 
     .advantage-list {

@@ -873,8 +873,18 @@ html {
     /* =============== ADVANTAGE =============== */
 
     #advantage {
-      background-color: white;
-      padding: 0%;
+
+      
+  background-image: url(sherrickweb-img/back.jpg);
+  background-repeat: repeat;
+  background-position: bottom center;   /* 👈 critical */
+  background-size: auto 100%;           /* or `auto 100%` if you only care about height */
+  padding: 0%;
+  margin: 0%;
+  color: #eee;
+    
+      padding-top:3%;
+      padding-bottom:3%;
       margin: 0%;
     }
 
