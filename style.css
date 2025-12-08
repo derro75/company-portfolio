@@ -870,21 +870,22 @@ html {
     }
     /* =============== ADVANTAGE =============== */
 
-    #advantage {
+   #advantage {
 
-      
-  background-image: url(sherrickweb-img/back.jpg);
+  background-image: url(sherrickweb-img/jigsaw-bg.png);
+
   background-repeat: repeat;
   background-position: bottom center;   /* 👈 critical */
   background-size: auto 100%;           /* or `auto 100%` if you only care about height */
   padding: 0%;
   margin: 0%;
-  color: #eee;
+
     
       padding-top:3%;
       padding-bottom:3%;
       margin: 0%;
     }
+
 
     .advantage-list {
 
@@ -897,7 +898,7 @@ html {
       margin-bottom: 0.25rem;
     }
 #advantage .section-title {
-      color: #ffffff;
+      color: #2200ff;
       font-size: 2.45rem;
       font-weight: 700;
       text-align: center;
@@ -919,7 +920,7 @@ html {
       line-height: 1.6;
   font-family: 'Open Sans', sans-serif;
 font-weight: 400; /* Regular for readability */
-color: #e0e0e0; /* Light gray/white — softer than pure white for long text */
+color: #030303; /* Light gray/white — softer than pure white for long text */
 line-height: 1.6;
     }
 .advantage-text h4 {
@@ -927,7 +928,7 @@ line-height: 1.6;
   font-size: 1.7rem;
   font-weight: 700;          /* Bold — strong emphasis */
   
-  color: #b3b3b3;             /* Crisp white — pops against gradient */
+  color: #2200ff;/* Light gray/white — softer than pure white for long text */             /* Crisp white — pops against gradient */
   margin-bottom: 6px;
   line-height: 1.3;
 
@@ -939,7 +940,7 @@ line-height: 1.6;
   font-family: 'Open Sans', sans-serif;
   font-size: 1.05rem;
   font-weight: 400;
-  color: #ffffff;/* Soft light gray — clearly secondary */
+  color: #060606;/* Soft light gray — clearly secondary */
   line-height: 1.6;
   margin: 0;
 }
@@ -1313,7 +1314,7 @@ line-height: 1.6;
 
    #who-we-are {
     padding: 3rem 0;
-    background-position: 74%;
+    background-position: 74;
   }
 
   #who-we-are .section-title {
