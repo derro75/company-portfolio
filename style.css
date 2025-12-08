@@ -926,15 +926,27 @@ font-weight: 400; /* Regular for readability */
 color: #e0e0e0; /* Light gray/white — softer than pure white for long text */
 line-height: 1.6;
     }
-      .advantage-text {
-      font-size: 1.125rem;
-      text-align: center;
-padding-bottom: 7px;
-  font-family: 'Open Sans', sans-serif;
-font-weight: 400; /* Regular for readability */
-color: #e0e0e0; /* Light gray/white — softer than pure white for long text */
+.advantage-text h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;          /* Bold — strong emphasis */
+  
+  color: #b3b3b3;             /* Crisp white — pops against gradient */
+  margin-bottom: 6px;
+  line-height: 1.3;
 
-    }
+  align-items: center;
+  gap: 8px;
+}
+
+.advantage-text p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #ffffff;/* Soft light gray — clearly secondary */
+  line-height: 1.6;
+  margin: 0;
+}
     /* =============== TESTIMONIALS =============== */
     #testimonials {
       background-color: var(--gray-100);
