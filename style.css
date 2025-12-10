@@ -204,7 +204,7 @@ html {
       }
 
       .geta_quote a:hover {
-        background-color: #2200ff;
+        background-color: #e05d00;
         transform: translateY(-1px);
       }
 
@@ -478,7 +478,7 @@ html {
 }
 
 #quote-section h1 {
-  color: #ff6b00;
+  color: #2200ff;
   font-size: 28px;
   margin-bottom: 10px;
   font-weight: 600;
@@ -515,7 +515,7 @@ html {
 #quote-form select:focus,
 #quote-form textarea:focus {
   outline: none;
-  border-color: #ff6b00;
+  border-color: #2200ff;
   box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.1);
 }
 
@@ -527,7 +527,7 @@ html {
 
 /* Button styling */
 #quote-form .btn {
-  background-color: #ff6b00;
+  background-color: #2200ff;
   color: white;
   border: none;
   padding: 12px 24px;
@@ -541,6 +541,7 @@ html {
 
 #quote-form .btn:hover {
   background-color: #e05d00;
+  transform: translateY(-1px);
 }
 
 /* === MOBILE MENU STYLES === */
