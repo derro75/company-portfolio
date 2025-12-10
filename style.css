@@ -465,6 +465,84 @@ html {
   margin: 0.25rem 0;
 }
 
+
+/* quote */
+#quote-section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#quote-section h1 {
+  color: #ff6b00;
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+#quote-section p {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* Form styling */
+#quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Input and select styling */
+#quote-form input,
+#quote-form select,
+#quote-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+#quote-form input:focus,
+#quote-form select:focus,
+#quote-form textarea:focus {
+  outline: none;
+  border-color: #ff6b00;
+  box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.1);
+}
+
+/* Textarea specific styling */
+#quote-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* Button styling */
+#quote-form .btn {
+  background-color: #ff6b00;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
+  font-weight: 600;
+}
+
+#quote-form .btn:hover {
+  background-color: #e05d00;
+}
+
 /* === MOBILE MENU STYLES === */
 .mobile-menu-overlay {
   position: fixed;
