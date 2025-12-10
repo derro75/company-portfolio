@@ -255,4 +255,37 @@
     <h1>Contact Us</h1>
     <p>Get in touch with our team today.</p>
   </section>
+  <section id="quote-section" class="page-section">
+    <h1>Get a Free Quote</h1>
+    <form 
+  action="https://formspree.io/f/xyz123abc" 
+  method="POST"
+  id="quote-form"
+>
+  <!-- All your inputs (keep name="" attributes!) -->
+  <input type="text" name="name" placeholder="Name*" required>
+  <input type="email" name="email" placeholder="Email (optional)">
+  <input type="tel" name="phone" placeholder="Phone no*" required>
+  <input type="text" name="location" placeholder="Location* e.g Nairobi, Parklands" required>
+  <input type="text" name="company" placeholder="Company (optional)">
+  <input type="text" name="budget" placeholder="Estimated Budget*" required>
+
+  <select name="project_type" required>
+    <option value="">Choose Type of Project*</option>
+    <option value="Website">Website</option>
+    <option value="Mobile App">Mobile App</option>
+    <option value="E-commerce">E-commerce</option>
+    <option value="CRM System">CRM System</option>
+    <option value="Other">Other</option>
+  </select>
+
+  <input type="text" name="subject" placeholder="Subject e.g A Jumia like website*">
+  <textarea name="description" placeholder="Project description*" required></textarea>
+
+  <!-- ✅ Optional but recommended: honeypot for spam -->
+  <input type="text" name="_gotcha" style="display:none">
+
+  <button type="submit" class="btn">Get Free Quote</button>
+</form>
+  </section>
 </main>
