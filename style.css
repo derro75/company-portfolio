@@ -915,6 +915,10 @@ html {
       transform: translateY(-15px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
+    .service-card a {
+      text-decoration: none;
+      color: #030303;
+    }
 
     .card-img {
       height: 180px;
