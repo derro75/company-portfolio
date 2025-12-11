@@ -204,7 +204,7 @@ html {
       }
 
       .geta_quote a:hover {
-        background-color: #2200ff;
+        background-color: #e05d00;
         transform: translateY(-1px);
       }
 
@@ -463,6 +463,85 @@ html {
 
 .footer-bottom p {
   margin: 0.25rem 0;
+}
+
+
+/* quote */
+#quote-section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#quote-section h1 {
+  color: #2200ff;
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+#quote-section p {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* Form styling */
+#quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Input and select styling */
+#quote-form input,
+#quote-form select,
+#quote-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+#quote-form input:focus,
+#quote-form select:focus,
+#quote-form textarea:focus {
+  outline: none;
+  border-color: #2200ff;
+  box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.1);
+}
+
+/* Textarea specific styling */
+#quote-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* Button styling */
+#quote-form .btn {
+  background-color: #2200ff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
+  font-weight: 600;
+}
+
+#quote-form .btn:hover {
+  background-color: #e05d00;
+  transform: translateY(-1px);
 }
 
 /* === MOBILE MENU STYLES === */
@@ -836,6 +915,10 @@ html {
       transform: translateY(-15px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
+    .service-card a {
+      text-decoration: none;
+      color: #030303;
+    }
 
     .card-img {
       height: 180px;
@@ -870,15 +953,22 @@ html {
     }
     /* =============== ADVANTAGE =============== */
 
-    #advantage {
-      
-  background-image: url(sherrickweb-img/nairobi-bg.jpg);
+   #advantage {
+
+  background-image: url(sherrickweb-img/jigsaw-bg.png);
+
   background-repeat: repeat;
   background-position: bottom center;   /* 👈 critical */
   background-size: auto 100%;           /* or `auto 100%` if you only care about height */
   padding: 0%;
   margin: 0%;
+
+    
+      padding-top:3%;
+      padding-bottom:3%;
+      margin: 0%;
     }
+
 
     .advantage-list {
 
@@ -891,21 +981,51 @@ html {
       margin-bottom: 0.25rem;
     }
 #advantage .section-title {
-      font-size: 2.25rem;
+      color: #030303;
+      font-size: 2.45rem;
       font-weight: 700;
       text-align: center;
       margin-bottom: 1.5rem;
-      color: var(--gray-900);
     }
 
 
       #advantage .section-subtitle {
       font-size: 1.125rem;
-      color: var(--gray-700);
+      color: #2200ff;
       text-align: center;
       margin: 0 auto 3rem;
       line-height: 1.6;
     }
+      #advantage .text-center {
+      font-size: 1.125rem;
+      text-align: center;
+      margin: 0 auto 3rem;
+      line-height: 1.6;
+  font-family: 'Open Sans', sans-serif;
+font-weight: 400;
+color: #2200ff; /* Light gray/white — softer than pure white for long text */
+line-height: 1.6;
+    }
+.advantage-text h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.7rem;
+  font-weight: 700;          /* Bold — strong emphasis */
+  color: #030303;/* Light gray/white — softer than pure white for long text */             /* Crisp white — pops against gradient */
+  margin-bottom: 6px;
+  line-height: 1.3;
+
+  align-items: center;
+  gap: 8px;
+}
+
+.advantage-text p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #2200ff;/* Soft light gray — clearly secondary */
+  line-height: 1.6;
+  margin: 0;
+}
     /* =============== TESTIMONIALS =============== */
     #testimonials {
       background-color: var(--gray-100);
@@ -1060,19 +1180,12 @@ html {
   width: 100%;
   height: 100%;
   object-position: top center; /* better than just 'top' — centers horizontally too */
+  z-index: 1;
 }
-.bg-poster {
-  position: absolute;
-      top: 8px; /* Slight top offset */
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;      /* adjust as needed */
-      height: 60px;
-      border-radius: 50%;
-      opacity: 0.7;
-      z-index: 2;
-      transition: opacity 0.3s ease;
-    }
+
+
+
+
 
 
 /* === RESPONSIVE === */
@@ -1288,7 +1401,7 @@ html {
 
    #who-we-are {
     padding: 3rem 0;
-    background-position: 74%;
+    background-position: 74;
   }
 
   #who-we-are .section-title {
