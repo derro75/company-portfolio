@@ -1461,4 +1461,44 @@ line-height: 1.6;
     padding: 1.75rem;
   }
 
+  .overlay-poster {
+    /* Smaller, more subtle badge on mobile */
+    width: 64px;
+    height: 64px;
+    top: 12px;
+    right: 12px;
+    opacity: 1; /* always visible */
+    transform: scale(1) rotate(0); /* no animation delay */
+    
+    /* Softer glow for mobile (less distracting) */
+    box-shadow: 
+      0 2px 6px rgba(0, 102, 204, 0.25),
+      0 0 0 3px rgba(255, 255, 255, 0.95);
+    
+    /* Optional: slight fade-in on load (only once) */
+    animation: none; /* disable pulse animation on mobile */
+  }
+
+  /* Optional: slightly reduce card padding bottom on mobile */
+  .service-card {
+    padding-bottom: 50px;
+  }
+
+  /* Optional: make the badge tap-friendly (larger hit area) */
+  .overlay-poster {
+    /* pseudo-element for larger tap target */
+    position: relative;
+  }
+  .overlay-poster::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    /* invisible, but makes tap area bigger */
+  }
+
+
+
 }
