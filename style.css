@@ -1204,9 +1204,10 @@ line-height: 1.6;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center;
+  object-position: center;
   border-radius: 2%;
   display: block;
+
 }
 
 
