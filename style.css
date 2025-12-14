@@ -1462,43 +1462,30 @@ line-height: 1.6;
   }
 
   .overlay-poster {
-    /* Smaller, more subtle badge on mobile */
-    width: 64px;
-    height: 64px;
+    /* Override hover-hidden state */
+    opacity: 1 !important;
+    transform: scale(1) rotate(0) !important;
+    /* Smooth initial appearance (optional) */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    
+    /* Slightly smaller & tighter spacing for mobile */
+    width: 70px;
+    height: 70px;
     top: 12px;
     right: 12px;
-    opacity: 1; /* always visible */
-    transform: scale(1) rotate(0); /* no animation delay */
     
-    /* Softer glow for mobile (less distracting) */
+    /* Softer shadow for mobile readability */
     box-shadow: 
-      0 2px 6px rgba(0, 102, 204, 0.25),
+      0 3px 8px rgba(0, 102, 204, 0.25),
       0 0 0 3px rgba(255, 255, 255, 0.95);
     
-    /* Optional: slight fade-in on load (only once) */
-    animation: none; /* disable pulse animation on mobile */
+    /* Stop pulse animation on mobile (optional) */
+    animation: none;
   }
 
-  /* Optional: slightly reduce card padding bottom on mobile */
-  .service-card {
-    padding-bottom: 50px;
+  /* Ensure point-card stays stable on mobile */
+  .point-card:hover {
+    transform: none; /* disable lift on mobile (no hover UX) */
   }
-
-  /* Optional: make the badge tap-friendly (larger hit area) */
-  .overlay-poster {
-    /* pseudo-element for larger tap target */
-    position: relative;
-  }
-  .overlay-poster::after {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: -8px;
-    right: -8px;
-    bottom: -8px;
-    /* invisible, but makes tap area bigger */
-  }
-
-
 
 }
