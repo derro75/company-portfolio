@@ -1183,6 +1183,12 @@ line-height: 1.6;
   /* Optional: add a soft pulse for extra polish */
   animation: pulseBadge 2s ease-in-out 0.3s infinite;
 }
+.point-card:hover .overlay-poster-alt {
+  opacity: 1;
+  transform: scale(1) rotate(0);
+  /* Optional: add a soft pulse for extra polish */
+  animation: pulseBadge 2s ease-in-out 0.3s infinite;
+}
 
 .point-card:hover {
   transform: translateY(-4px);
@@ -1512,8 +1518,8 @@ line-height: 1.6;
     /* Slightly smaller & tighter spacing for mobile */
     width: 70px;
     height: 70px;
-    top: 12px;
-    right: 12px;
+    bottom: 12px;
+    left: 12px;
     
     /* Softer shadow for mobile readability */
     box-shadow: 
