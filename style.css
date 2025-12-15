@@ -1230,6 +1230,25 @@ line-height: 1.6;
     0 4px 12px rgba(0, 102, 204, 0.3),
     0 0 0 4px rgba(255, 255, 255, 0.9);
 }
+.overlay-poster-alt {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  width: 80px;
+  height: 80px;
+  border-radius: 5%;
+  object-fit: cover;
+  /* Start hidden & scaled down */
+  opacity: 0;
+  transform: scale(0.6) rotate(-10deg);
+  transition: 
+    opacity 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 2;
+  box-shadow: 
+    0 4px 12px rgba(0, 102, 204, 0.3),
+    0 0 0 4px rgba(255, 255, 255, 0.9);
+}
 
 
 
@@ -1463,6 +1482,27 @@ line-height: 1.6;
   }
 
   .overlay-poster {
+    /* Override hover-hidden state */
+    opacity: 1 !important;
+    transform: scale(1) rotate(0) !important;
+    /* Smooth initial appearance (optional) */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    
+    /* Slightly smaller & tighter spacing for mobile */
+    width: 70px;
+    height: 70px;
+    top: 12px;
+    right: 12px;
+    
+    /* Softer shadow for mobile readability */
+    box-shadow: 
+      0 3px 8px rgba(0, 102, 204, 0.25),
+      0 0 0 3px rgba(255, 255, 255, 0.95);
+    
+    /* Stop pulse animation on mobile (optional) */
+    animation: none;
+  }
+  .overlay-poster-alt {
     /* Override hover-hidden state */
     opacity: 1 !important;
     transform: scale(1) rotate(0) !important;
