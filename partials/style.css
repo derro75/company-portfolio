@@ -1169,22 +1169,92 @@ line-height: 1.6;
     /* =============== RESPONSIVE =============== */
 
 .point-card {
+  position: relative;
   display: flex;
-  justify-content: center; /* ← centers horizontally */
-  align-items: center;     /* ← centers vertically */
-/* ensures object-fit: cover crops cleanly */
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Critical: keeps overlay inside */
+  border-radius: 2%; /* matches front-poster */
+  height: 240px; /* explicit — prevents layout shift */
+}
+.point-card:hover .overlay-poster {
+  opacity: 1;
+  transform: scale(1) rotate(0);
+  /* Optional: add a soft pulse for extra polish */
+  animation: pulseBadge 2s ease-in-out 0.3s infinite;
+}
+.point-card:hover .overlay-poster-alt {
+  opacity: 1;
+  transform: scale(1) rotate(0);
+  /* Optional: add a soft pulse for extra polish */
+  animation: pulseBadge 2s ease-in-out 0.3s infinite;
+}
+
+.point-card:hover {
+  transform: translateY(-4px);
+  transition: transform 0.3s ease;
+}
+
+/* Bonus: subtle pulse animation (optional but pro) */
+@keyframes pulseBadge {
+  0%, 100% { box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3), 0 0 0 4px rgba(255, 255, 255, 0.9); }
+  50% { box-shadow: 0 6px 16px rgba(0, 102, 204, 0.5), 0 0 0 6px rgba(255, 255, 255, 1); }
+}
+.image-stack {
+  position: relative;
+  width: 308px;
+  height: 240px;
 }
 
 .front-poster {
-  border-radius: 2%;
   width: 100%;
   height: 100%;
-  object-position: top center; /* better than just 'top' — centers horizontally too */
-  z-index: 1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 2%;
+  display: block;
+
 }
 
 
-
+.overlay-poster {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 80px;
+  height: 80px;
+  border-radius: 5%;
+  object-fit: cover;
+  /* Start hidden & scaled down */
+  opacity: 0;
+  transform: scale(0.6) rotate(-10deg);
+  transition: 
+    opacity 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 2;
+  box-shadow: 
+    0 4px 12px rgba(0, 102, 204, 0.3),
+    0 0 0 4px rgba(255, 255, 255, 0.9);
+}
+.overlay-poster-alt {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  width: 80px;
+  height: 80px;
+  border-radius: 5%;
+  object-fit: cover;
+  /* Start hidden & scaled down */
+  opacity: 0;
+  transform: scale(0.6) rotate(-10deg);
+  transition: 
+    opacity 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 2;
+  box-shadow: 
+    0 4px 12px rgba(0, 102, 204, 0.3),
+    0 0 0 4px rgba(255, 255, 255, 0.9);
+}
 
 
 
@@ -1415,6 +1485,54 @@ line-height: 1.6;
   .diff-card {
     max-width: 100%;
     padding: 1.75rem;
+  }
+
+  .overlay-poster {
+    /* Override hover-hidden state */
+    opacity: 1 !important;
+    transform: scale(1) rotate(0) !important;
+    /* Smooth initial appearance (optional) */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    
+    /* Slightly smaller & tighter spacing for mobile */
+    width: 70px;
+    height: 70px;
+    top: 12px;
+    right: 12px;
+    
+    /* Softer shadow for mobile readability */
+    box-shadow: 
+      0 3px 8px rgba(0, 102, 204, 0.25),
+      0 0 0 3px rgba(255, 255, 255, 0.95);
+    
+    /* Stop pulse animation on mobile (optional) */
+    animation: none;
+  }
+  .overlay-poster-alt {
+    /* Override hover-hidden state */
+    opacity: 1 !important;
+    transform: scale(1) rotate(0) !important;
+    /* Smooth initial appearance (optional) */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    
+    /* Slightly smaller & tighter spacing for mobile */
+    width: 70px;
+    height: 70px;
+    bottom: 12px;
+    left: 12px;
+    
+    /* Softer shadow for mobile readability */
+    box-shadow: 
+      0 3px 8px rgba(0, 102, 204, 0.25),
+      0 0 0 3px rgba(255, 255, 255, 0.95);
+    
+    /* Stop pulse animation on mobile (optional) */
+    animation: none;
+  }
+
+  /* Ensure point-card stays stable on mobile */
+  .point-card:hover {
+    transform: none; /* disable lift on mobile (no hover UX) */
   }
 
 }
