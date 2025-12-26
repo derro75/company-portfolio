@@ -1,18 +1,7 @@
-# netlify.toml
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
-# netlify.toml — Optimized for Sherrick Web (Kenyan Startup)
+# netlify.toml — Fixed & Simplified for Sherrick Web
 # Place in root of your project
 
-[build]
-  base = ""
-  publish = "/"
-  command = "echo 'No build command needed for static site'"
-
-# Redirects: Ensure clean URLs & www → non-www
+# Redirects (order matters!)
 [[redirects]]
   from = "https://www.sherrickweb.co.ke/*"
   to = "https://sherrickweb.co.ke/:splat"
@@ -29,13 +18,22 @@
   to = "/#advantage"
   status = 301
 
+# Fallback for SPA/hash routing (MUST come LAST)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Custom 404 (Netlify auto-uses /404.html if present)
+# No need for explicit 404 redirect if file exists
+
 # Headers: Performance + Security
 [[headers]]
   for = "/*"
   [headers.values]
-    # Enable Brotli compression (faster on mobile)
-    Content-Encoding = "br"
-
+    # Brotli compression (auto-negotiated — no need to force "br")
+    # Netlify applies Brotli by default for supported clients ✅
+    
     # Security headers
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
@@ -43,21 +41,4 @@
     Permissions-Policy = "geolocation=(), camera=(), microphone=()"
 
     # Cache static assets (1 year)
-    Cache-Control = '''
-      public,
-      max-age=31536000,
-      immutable
-    '''
-
-
-# Custom 404 page (create a 404.html in root)
-[[redirects]]
-  from = "/*"
-  to = "/404.html"
-  status = 404
-
-# Opt-in to Netlify’s Edge Functions (future-proofing)
-[functions]
-  directory = "netlify/functions"
-  node_bundler = "esbuild"
-  
+    Cache-Control = "public, max-age=31536000, immutable"
