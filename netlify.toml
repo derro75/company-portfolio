@@ -1,3 +1,9 @@
+# netlify.toml
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
 # netlify.toml — Optimized for Sherrick Web (Kenyan Startup)
 # Place in root of your project
 
