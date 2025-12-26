@@ -1,5 +1,57 @@
-# netlify.toml
+# netlify.toml — Optimized for Sherrick Web (Kenyan Startup)
+# Place in root of your project
+
+[build]
+  base = ""
+  publish = "/"
+  command = "echo 'No build command needed for static site'"
+
+# Redirects: Ensure clean URLs & www → non-www
+[[redirects]]
+  from = "https://www.sherrickweb.co.ke/*"
+  to = "https://sherrickweb.co.ke/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact"
+  to = "/#contact"
+  status = 301
+
+[[redirects]]
+  from = "/services"
+  to = "/#advantage"
+  status = 301
+
+# Headers: Performance + Security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Enable Brotli compression (faster on mobile)
+    Content-Encoding = "br"
+
+    # Security headers
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer-when-downgrade"
+    Permissions-Policy = "geolocation=(), camera=(), microphone=()"
+
+    # Cache static assets (1 year)
+    Cache-Control = '''
+      public,
+      max-age=31536000,
+      immutable
+    '''
+
+
+# Custom 404 page (create a 404.html in root)
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
+  to = "/404.html"
+  status = 404
+
+# Opt-in to Netlify’s Edge Functions (future-proofing)
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+  
