@@ -1272,7 +1272,17 @@ line-height: 1.6;
     0 0 0 4px rgba(255, 255, 255, 0.9);
 }
 
+.about-values {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
 
+.value-item h3 {
+  color: #2200ff; /* blue accent */
+  font-weight: 600;
+}
 
 /* === RESPONSIVE === */
 @media (max-width: 799px) {
