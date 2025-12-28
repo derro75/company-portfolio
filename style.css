@@ -1279,6 +1279,16 @@ line-height: 1.6;
   margin-top: 2rem;
 }
 
+.about-intro{
+  display: flex;
+
+}
+.about-paragraphs{
+  display: inline;
+  font-size: 24px;
+  padding: 12px;
+  max-height: 300px;
+}
 .value-item h3 {
   color: #2200ff; /* blue accent */
   font-weight: 600;
@@ -1320,6 +1330,12 @@ line-height: 1.6;
     transform: translateX(-50%);
   }
   
+
+.about-intro{
+  display: inline-block;
+
+}
+
   /* Fix newsletter */
   .newsletter form {
     flex-direction: column;
