@@ -1,20 +1,18 @@
+# Static site: no build step needed
 [build]
-  publish = "dist"  # or "build", "out", etc — match your output folder
-  command = "npm run build"  # or your actual build script
+  publish = "."
 
-# CRITICAL: Prevent stale HTML — enables instant sync between .co.ke and Netlify
+# Cache control for instant updates
 [[headers]]
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
-# Optional: allow caching for static assets (speeds up repeat visits)
 [[headers]]
   for = "/static/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Optional: enforce HTTPS + HSTS (good for SEO/security)
 [[headers]]
   for = "/*"
   [headers.values]
