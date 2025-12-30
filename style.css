@@ -1297,6 +1297,7 @@ line-height: 1.6;
   flex: 1 1 300px;
   font-size: 24px;
   padding: 12px;
+  padding-bottom: 0%;
   line-height: 1.6;
   max-width: 100%;
 }
@@ -1360,15 +1361,16 @@ line-height: 1.6;
 }
 
 .why-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transform: translateY(-9px);
+  box-shadow: 0 17px 24px rgba(0,0,0,0.08);
 }
 
 .why-card .card-icon {
   font-size: 2.5rem;
   color: #2200ff;
   margin-bottom: 15px;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
 }
 
 .why-card h3 {
@@ -1438,6 +1440,7 @@ line-height: 1.6;
   .about-paragraphs {
     font-size: 20px;
     padding: 10px;
+    padding-bottom: 0%;
     text-align: left;
     align-self: stretch;
   }
@@ -1685,7 +1688,7 @@ line-height: 1.6;
   }
 
   .why-card {
-    width: calc(50% - 30px);
+    width: calc(70% - 30px);
   }
 
 
@@ -1697,6 +1700,8 @@ line-height: 1.6;
   .about-paragraphs {
     font-size: 18px;
     padding: 10px;
+    padding-bottom: 0%;
+    
   }
 
 
