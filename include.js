@@ -4,7 +4,6 @@ function includeHTML() {
   const total = elements.length;
 
   if (total === 0) {
-    // No partials found, still dispatch the event
     document.dispatchEvent(new Event("partials-loaded"));
     return;
   }
@@ -12,8 +11,14 @@ function includeHTML() {
   elements.forEach(async el => {
     const file = el.getAttribute("data-include");
 
+    // ✅ CACHE BUSTING + NO-STORE FETCH
+    const bust = `?v=${Date.now()}`;
+
     try {
-      const response = await fetch(file);
+      const response = await fetch(file + bust, {
+        cache: "no-store"
+      });
+
       if (!response.ok) throw new Error(`Failed to fetch ${file}`);
       const html = await response.text();
       el.innerHTML = html;
@@ -22,15 +27,11 @@ function includeHTML() {
       el.querySelectorAll("script").forEach(oldScript => {
         const newScript = document.createElement("script");
 
-        // Copy all attributes (src, data-*, etc.)
         Array.from(oldScript.attributes).forEach(attr =>
           newScript.setAttribute(attr.name, attr.value)
         );
 
-        // Copy inline script content if any
         newScript.text = oldScript.text;
-
-        // Replace old script with the new one so it executes
         oldScript.replaceWith(newScript);
       });
 
@@ -40,12 +41,12 @@ function includeHTML() {
     } finally {
       loaded++;
       if (loaded === total) {
-        // ✅ All partials are loaded
         document.dispatchEvent(new Event("partials-loaded"));
       }
     }
   });
 }
+
 
 document.addEventListener("DOMContentLoaded", includeHTML);
 
