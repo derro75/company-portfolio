@@ -1807,7 +1807,9 @@ line-height: 1.6;
     padding-bottom: 0%;
     
   }
-
+  .server-image {
+    display: none; /* Hides on mobile */
+    }
 
   .why-card {
     width: 100%;
