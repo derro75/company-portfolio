@@ -104,6 +104,7 @@ html {
       }
 .bottom-head {
         display: flex;
+        position: relative;
         justify-content: space-between;
         align-items: center;
         padding: 0.75rem 2rem;
@@ -775,10 +776,7 @@ html {
     }
 
     /* =============== HOME SECTION =============== */
-    #home-section {
-      background: linear-gradient(135deg, #f5f9f5 0%, #e8f5e9 100%);
-      text-align: center;
-    }
+
 
 .hero-section {
       display: flex;
@@ -1325,6 +1323,10 @@ line-height: 1.6;
   max-width: 100%;
 }
 
+#about-section {
+  background: linear-gradient(135deg, #f5f9f5 0%, #e8f5e9 100%);
+  text-align: center;
+}
 #about-section h1{
   display: flex;
   justify-content: center;
@@ -1433,7 +1435,7 @@ line-height: 1.6;
     }
 
     .top-container h1 span {
-      color: #2ECC71; /* Teal Green for "Website Design" */
+      color: #38a93e; /* Teal Green for "Website Design" */
     }
 
     .top-container p {
@@ -1443,7 +1445,7 @@ line-height: 1.6;
     }
 
     /* Server Rack Image (HTML) - Hidden on Mobile */
-    .server-image {
+    #server-image {
       width: 45%;
       max-width: 500px;
       border-radius: 12px;
@@ -1465,6 +1467,41 @@ line-height: 1.6;
       background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.9) 100%);
       z-index: -1;
     }
+
+
+
+/* Mobile arrow guide — hidden by default, shown only on mobile */
+.mobile-arrow-guide {
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  transform: translateY(-50%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 99;
+  transition: opacity 0.5s ease;
+}
+
+
+
+/* Animation: gentle right wiggle + fade */
+@keyframes mobileArrowPulse {
+  0%   { transform: translateY(-50%) translateX(0); opacity: 0.6; }
+  50%  { transform: translateY(-50%) translateX(8px); opacity: 1; }
+  100% { transform: translateY(-50%) translateX(0); opacity: 0.6; }
+}
+
+.mobile-arrow-guide svg {
+  width: 50px;
+  height: 50px;
+}
+
+.mobile-arrow-guide.arrow-visible {
+  opacity: 1;
+  animation: mobileArrowPulse 2.5s ease-in-out infinite;
+}
+
+
 
 /* === RESPONSIVE === */
 @media (max-width: 799px) {
@@ -1501,6 +1538,13 @@ line-height: 1.6;
     transform: translateX(-50%);
   }
 
+  .mobile-arrow-guide.arrow-visible {
+    opacity: 1;
+    animation: mobileArrowPulse 2.5s ease-in-out infinite;
+  }
+
+
+
 
       .hero-section {
         flex-direction: column;
@@ -1514,7 +1558,7 @@ line-height: 1.6;
         margin-bottom: 40px;
       }
 
-      .server-image {
+      #server-image {
         display: none; /* Hides on mobile */
       }
 
@@ -1806,7 +1850,9 @@ line-height: 1.6;
     padding-bottom: 0%;
     
   }
-
+  #server-image {
+    display: none; /* Hides on mobile */
+    }
 
   .why-card {
     width: 100%;
