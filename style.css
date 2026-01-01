@@ -1474,29 +1474,21 @@ line-height: 1.6;
 .mobile-arrow-guide {
   position: absolute;
   top: 50%;
-  left: 60px; /* Adjust based on your menu icon position */
+  left: 60px;
   transform: translateY(-50%);
   opacity: 0;
-  pointer-events: none; /* So it doesn’t block clicks */
+  pointer-events: none;
   z-index: 99;
+  transition: opacity 0.5s ease;
 }
 
 
 
 /* Animation: gentle right wiggle + fade */
 @keyframes mobileArrowPulse {
-  0% {
-    transform: translateY(-50%) translateX(0);
-    opacity: 0.6;
-  }
-  50% {
-    transform: translateY(-50%) translateX(8px);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-50%) translateX(0);
-    opacity: 0.6;
-  }
+  0%   { transform: translateY(-50%) translateX(0); opacity: 0.6; }
+  50%  { transform: translateY(-50%) translateX(8px); opacity: 1; }
+  100% { transform: translateY(-50%) translateX(0); opacity: 0.6; }
 }
 
 .mobile-arrow-guide svg {
@@ -1504,7 +1496,10 @@ line-height: 1.6;
   height: 50px;
 }
 
-
+.mobile-arrow-guide.arrow-visible {
+  opacity: 1;
+  animation: mobileArrowPulse 2.5s ease-in-out infinite;
+}
 
 
 
@@ -1543,10 +1538,14 @@ line-height: 1.6;
     transform: translateX(-50%);
   }
 
-  .mobile-arrow-guide {
+  .mobile-arrow-guide.arrow-visible {
     opacity: 1;
     animation: mobileArrowPulse 2.5s ease-in-out infinite;
   }
+
+
+
+
       .hero-section {
         flex-direction: column;
         padding: 60px 20px;

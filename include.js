@@ -265,3 +265,34 @@ document.addEventListener('partials-loaded', function() {
     });
   });
 });
+
+// ✅ Arrow guidance — runs AFTER partials are loaded (FIXED & ROBUST)
+document.addEventListener('partials-loaded', function() {
+  const arrow = document.querySelector('.mobile-arrow-guide');
+  const menuToggle = document.querySelector('.mobile-menu-toggle');
+
+  if (!arrow || !menuToggle) return;
+
+  const hasSeenArrow = localStorage.getItem('sherrickWebHasSeenArrow') === 'true';
+
+  // Add class to enable animation (instead of inline opacity)
+  if (!hasSeenArrow && window.innerWidth <= 799) {
+    setTimeout(() => {
+      arrow.classList.add('arrow-visible');
+    }, 3000);
+  }
+
+  function dismissArrow() {
+    arrow.classList.remove('arrow-visible');
+    localStorage.setItem('sherrickWebHasSeenArrow', 'true');
+  }
+
+  menuToggle.addEventListener('click', dismissArrow);
+
+  // Also dismiss on first dropdown use
+  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      if (!hasSeenArrow) dismissArrow();
+    });
+  });
+});
