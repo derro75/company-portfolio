@@ -1445,7 +1445,7 @@ line-height: 1.6;
     }
 
     /* Server Rack Image (HTML) - Hidden on Mobile */
-    .server-image {
+    #server-image {
       width: 45%;
       max-width: 500px;
       border-radius: 12px;
@@ -1558,7 +1558,7 @@ line-height: 1.6;
         margin-bottom: 40px;
       }
 
-      .server-image {
+      #server-image {
         display: none; /* Hides on mobile */
       }
 
@@ -1850,7 +1850,7 @@ line-height: 1.6;
     padding-bottom: 0%;
     
   }
-  .server-image {
+  #server-image {
     display: none; /* Hides on mobile */
     }
 
