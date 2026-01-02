@@ -296,3 +296,51 @@ document.addEventListener('partials-loaded', function() {
     });
   });
 });
+
+document.addEventListener('partials-loaded', function () {
+  const images = document.querySelectorAll('.carousel-image');
+  const dots = document.querySelectorAll('.dot');
+  const carousel = document.querySelector('.hero-carousel');
+
+  if (!images.length || !dots.length || !carousel) return;
+
+  let currentIndex = 0;
+  let intervalId = null;
+
+  function showImage(index) {
+    images.forEach(img => img.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+
+    images[index].classList.add('active');
+    dots[index].classList.add('active');
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+  }
+
+  function startCarousel() {
+    stopCarousel();
+    intervalId = setInterval(nextImage, 4000);
+  }
+
+  function stopCarousel() {
+    if (intervalId) clearInterval(intervalId);
+  }
+
+  // Start after 3 seconds
+  setTimeout(startCarousel, 3000);
+
+  // Pause on hover
+  carousel.addEventListener('mouseenter', stopCarousel);
+  carousel.addEventListener('mouseleave', startCarousel);
+
+  // Dot navigation
+  dots.forEach(dot => {
+    dot.addEventListener('click', function () {
+      currentIndex = Number(this.dataset.index);
+      showImage(currentIndex);
+    });
+  });
+});
