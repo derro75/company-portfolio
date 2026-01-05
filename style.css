@@ -1576,7 +1576,9 @@ line-height: 1.6;
   overflow: hidden;
   position: relative;
   margin: 0;
-  padding: 0;
+  padding-left: 5%;
+  padding-right: 5%;
+
 }
 
 .showcase-container {
@@ -1646,9 +1648,9 @@ line-height: 1.6;
   .showcase-overlay h1 {
     font-size: 2rem;
   }
+    
+
 }
-
-
 
 
 
@@ -1994,7 +1996,6 @@ line-height: 1.6;
     padding: 15px;
     max-width: 95%;
   }
-
 }
 
 @media (max-width: 480px) {
