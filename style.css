@@ -1642,6 +1642,44 @@ line-height: 1.6;
   background-color: #FFC107;
 }
 
+.full-h1 {
+  text-align: center;
+  margin: 1.5rem 0;
+  padding: 0.5rem 1rem;
+}
+
+.centered-heading {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.breadcrumb-nav {
+  font-size: 0.95rem;
+  color: #666;
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.breadcrumb-nav a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb-nav a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.breadcrumb-nav span {
+  color: #999;
+}
+
+
 /* Responsive adjustments for smaller screens */
 
 @media (max-width: 1024px) {
