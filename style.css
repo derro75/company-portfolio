@@ -1337,7 +1337,9 @@ line-height: 1.6;
 }
 
 
-
+  .body-content{
+    text-align: center;
+  }
 /* Why Choose Us Section */
 .why-choose-us {
   padding: 80px 20px;
