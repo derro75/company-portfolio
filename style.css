@@ -224,8 +224,10 @@ html {
       }
 
       .geta_quote a:hover {
-        background-color: var(--color-primary-hover);
+        color: var(--color-accent);
+        background-color: var(--color-border-dark);
         transform: translateY(-1px);
+        border: 3px solid var(--color-accent);
       }
 
       .dropdown-menu {
@@ -560,7 +562,7 @@ html {
 }
 
 #quote-form .btn:hover {
-  background-color: var(--color-primary-hover);
+  background-color: var(--color-accent);
   transform: translateY(-1px);
 }
 
@@ -1722,6 +1724,79 @@ color: whitesmoke;
   font-weight: bold;
 }
 
+.start-section {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  font: 16px/1.6 sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+.start-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: #38a93e;
+  font-size: 1.2rem;
+  margin: 0.75rem 0 1.25rem;
+}
+
+.divider::before,
+.divider::after {
+  content: "—";
+  flex: 1;
+  border-top: 2px dashed #38a93e;
+}
+
+.start-section p {
+  margin: 0 auto 2rem;
+  max-width: 800px;
+}
+
+.options {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.opt {
+  flex: 1 1 280px;
+  padding: 1.25rem;
+  background: #fff;
+  border-left: 2px solid #ddd;
+  text-align: left;
+}
+
+.opt .num {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #38a93e;
+  margin-bottom: 0.5rem;
+}
+
+.opt h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.opt p {
+  margin: 0.5rem 0 1rem;
+  font-size: 0.95rem;
+}
+
+
+
 
 @media (max-width: 600px) {
   .need { padding: 1.25rem; margin: 1rem; }
@@ -2080,6 +2155,11 @@ color: whitesmoke;
     padding: 15px;
     max-width: 95%;
   }
+
+  .start-section { padding: 1rem; }
+  .options { gap: 1rem; }
+  .opt { flex: 1 1 100%; border-left: 0; padding: 1rem; }
+
 }
 
 @media (max-width: 480px) {
