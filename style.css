@@ -13,6 +13,9 @@
   --color-accent: #38a93e;
   --color-footer-bg: #0F0C29;
 }
+.green { background: #2ecc71; }
+.orange { background: #ff7b00; }
+
 
 * {
   box-sizing: border-box;
@@ -1685,7 +1688,44 @@ color: whitesmoke;
   color: black;
 }
 
+.need {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  font: 16px/1.6 sans-serif;
+  color: #333;
+}
 
+.need h2 {
+  margin: 0 0 1rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.need ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.need li {
+  margin: 0.5rem 0;
+  padding-left: 1.75rem;
+  position: relative;
+}
+
+.need li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #2ecc71;
+  font-weight: bold;
+}
+
+
+@media (max-width: 600px) {
+  .need { padding: 1.25rem; margin: 1rem; }
+}
 /* Responsive adjustments for smaller screens */
 
 @media (max-width: 1024px) {
