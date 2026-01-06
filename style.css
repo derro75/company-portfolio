@@ -1646,18 +1646,22 @@ line-height: 1.6;
   text-align: center;
   margin: 1.5rem 0;
   padding: 0.5rem 1rem;
+  background-color: #38a93e;
+}
+.full-h1 h1{
+color: whitesmoke;
 }
 
 .centered-heading {
-  font-size: 1.8rem;
+  font-size: 2.8rem;
   font-weight: 600;
   color: #1a1a1a;
   margin-bottom: 0.5rem;
 }
 
 .breadcrumb-nav {
-  font-size: 0.95rem;
-  color: #666;
+  font-size: 1.25rem;
+  color: whitesmoke;
   display: flex;
   justify-content: center;
   gap: 0.4rem;
@@ -1665,7 +1669,7 @@ line-height: 1.6;
 }
 
 .breadcrumb-nav a {
-  color: #007bff;
+  color: #f4f5f7;
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -1676,7 +1680,7 @@ line-height: 1.6;
 }
 
 .breadcrumb-nav span {
-  color: #999;
+  color: black;
 }
 
 
