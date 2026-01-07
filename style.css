@@ -1871,6 +1871,16 @@ color: whitesmoke;
   display: block;
 }
 
+
+
+/* Instead, we'll use a class-based approach for simplicity */
+.faq-toggle span.minus {
+  content: none; 
+}
+
+
+
+
 /* Quote Box */
 .faq-quote {
   flex: 1 1 300px;

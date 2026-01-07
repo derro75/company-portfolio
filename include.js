@@ -345,22 +345,32 @@ document.addEventListener('partials-loaded', function () {
   });
 });
 
-// ✅ FAQ toggle — runs AFTER partials load (fixes race condition)
+// ✅ FAQ toggle with + / - symbol switch
 document.addEventListener('partials-loaded', function() {
   document.querySelectorAll('.faq-toggle').forEach(button => {
-    // Remove existing listener (in case of duplicate execution)
-    const handler = () => {
-      const item = button.closest('.faq-item');
-      const isActive = item.classList.contains('active');
+    // Remove any existing listener to prevent duplicates
+    button.removeEventListener('click', toggleFaq);
 
-      // Close all
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-
-      // Open clicked one
-      if (!isActive) item.classList.add('active');
-    };
-
-    button.removeEventListener('click', handler);
-    button.addEventListener('click', handler);
+    // Attach new listener
+    button.addEventListener('click', toggleFaq);
   });
 });
+
+function toggleFaq() {
+  const item = this.closest('.faq-item');
+  const isActive = item.classList.contains('active');
+  const plusMinusSpan = this.querySelector('span');
+
+  // Close all items first
+  document.querySelectorAll('.faq-item').forEach(i => {
+    i.classList.remove('active');
+    const span = i.querySelector('.faq-toggle span');
+    if (span) span.textContent = '+';
+  });
+
+  // Open clicked one
+  if (!isActive) {
+    item.classList.add('active');
+    if (plusMinusSpan) plusMinusSpan.textContent = '−';
+  }
+}
