@@ -344,3 +344,23 @@ document.addEventListener('partials-loaded', function () {
     });
   });
 });
+
+// ✅ FAQ toggle — runs AFTER partials load (fixes race condition)
+document.addEventListener('partials-loaded', function() {
+  document.querySelectorAll('.faq-toggle').forEach(button => {
+    // Remove existing listener (in case of duplicate execution)
+    const handler = () => {
+      const item = button.closest('.faq-item');
+      const isActive = item.classList.contains('active');
+
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+
+      // Open clicked one
+      if (!isActive) item.classList.add('active');
+    };
+
+    button.removeEventListener('click', handler);
+    button.addEventListener('click', handler);
+  });
+});

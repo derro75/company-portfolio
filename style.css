@@ -1795,6 +1795,115 @@ color: whitesmoke;
   font-size: 0.95rem;
 }
 
+.faq-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  font: 16px/1.6 sans-serif;
+  color: #333;
+}
+
+.faq-section h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+}
+
+.faq-layout {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.faqs {
+  flex: 1 1 600px;
+}
+
+.faq-item {
+  margin-bottom: 0.75rem;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.faq-toggle {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  text-align: left;
+  background: #fafafa;
+  border: none;
+  font: 600 1rem sans-serif;
+  color: #222;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+}
+
+.faq-toggle:hover {
+  background: #f5f5f5;
+}
+
+.faq-toggle span {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.faq-answer {
+  padding: 1rem 1.25rem;
+  background: white;
+  display: none;
+  border-top: 1px solid #eee;
+  font-size: 0.95rem;
+}
+
+.faq-item.active .faq-toggle {
+  background: #2ecc71;
+  color: white;
+}
+
+.faq-item.active .faq-toggle span {
+  content: "−";
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+/* Quote Box */
+.faq-quote {
+  flex: 1 1 300px;
+  background: #f8f8f8;
+  padding: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.faq-quote p {
+  margin: 0 0 1rem;
+  font-style: italic;
+  font-size: 1.05rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  background: #ff7b00;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: opacity 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
 
 
 
@@ -2159,6 +2268,18 @@ color: whitesmoke;
   .start-section { padding: 1rem; }
   .options { gap: 1rem; }
   .opt { flex: 1 1 100%; border-left: 0; padding: 1rem; }
+
+
+  .faq-layout {
+    flex-direction: column;
+  }
+
+  .faq-quote {
+    order: 1;
+    margin-top: 1.5rem;
+  }
+
+
 
 }
 
