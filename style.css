@@ -2441,8 +2441,9 @@ color: whitesmoke;
     font-size: 1rem;
   }
 
-  .step-content p {
+   .step-content p {
     font-size: 0.9rem;
+    line-height: 1.6;
   }
 }
 
