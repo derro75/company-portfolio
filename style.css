@@ -1900,19 +1900,65 @@ color: whitesmoke;
   font-size: 1.05rem;
 }
 
-.btn {
-  padding: 0.75rem 1.5rem;
-  background: #ff7b00;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: opacity 0.2s;
+
+.uiux-benefits {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  font: 16px/1.6 sans-serif;
+  color: #333;
 }
 
-.btn:hover {
-  opacity: 0.9;
+.uiux-benefits h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+
+.uiux-benefits p {
+  margin: 0 0 2rem;
+  line-height: 1.7;
+}
+
+.benefit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.benefit-item {
+  position: relative;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.benefit-item:last-child {
+  border-bottom: none;
+}
+
+.benefit-item h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.benefit-item h3 .toggle {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  background: #f8f8f8;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.benefit-content {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: #555;
 }
 
 
@@ -2289,6 +2335,18 @@ color: whitesmoke;
     margin-top: 1.5rem;
   }
 
+  .uiux-benefits {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .benefit-item h3 {
+    font-size: 1rem;
+  }
+
+  .benefit-content {
+    font-size: 0.9rem;
+  }
 
 
 }
