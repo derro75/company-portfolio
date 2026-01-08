@@ -1594,11 +1594,12 @@ line-height: 1.6;
   height: auto;
   max-width: 100%;
   overflow: hidden;
+  
 }
 
 .responsive-showcase-img {
   width: 100%;
-  height: auto;
+  height: 70%;
   display: block;
   object-fit: cover;
   object-position: center;
