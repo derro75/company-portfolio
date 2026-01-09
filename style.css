@@ -1577,7 +1577,6 @@ line-height: 1.6;
 .dot:hover {
   transform: scale(1.2);
 }
-
 .showcase-section {
   width: 100%;
   overflow: hidden;
@@ -1585,7 +1584,6 @@ line-height: 1.6;
   margin: 0;
   padding-left: 5%;
   padding-right: 5%;
-
 }
 
 .showcase-container {
@@ -1594,15 +1592,29 @@ line-height: 1.6;
   height: auto;
   max-width: 100%;
   overflow: hidden;
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .responsive-showcase-img {
-  width: 100%;
-  height: 70%;
-  display: block;
-  object-fit: cover;
+  max-width: 100%;
+  width: 80vw;
+  height: auto;
+  object-fit: contain;
   object-position: center;
+  margin: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.responsive-showcase-img-1 {
+  max-width: 100%;
+  width: 70vw;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  margin: auto;
+  display: block;
   transition: transform 0.3s ease;
 }
 
