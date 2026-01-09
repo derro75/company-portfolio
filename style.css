@@ -1607,10 +1607,15 @@ line-height: 1.6;
   display: block;
   transition: transform 0.3s ease;
 }
+
+  .responsive-showcase-img:hover {
+    transform: scale(1.02);
+  }
+
 .responsive-showcase-img-1 {
   max-width: 100%;
-  width: 70vw;
-  height: auto;
+  width: auto;
+  height: 90vh;
   object-fit: contain;
   object-position: center;
   margin: auto;
@@ -1619,7 +1624,7 @@ line-height: 1.6;
 }
 
 
-  .responsive-showcase-img:hover {
+.responsive-showcase-img-1:hover {
     transform: scale(1.02);
   }
 
@@ -2407,6 +2412,11 @@ color: whitesmoke;
     padding: 15px;
     max-width: 95%;
   }
+
+  .responsive-showcase-img-1 {
+  width: 80vw;
+  height: auto;
+}
 
   .start-section { padding: 1rem; }
   .options { gap: 1rem; }
