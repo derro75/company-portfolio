@@ -743,39 +743,6 @@ html {
     }
 
 
-    .btn {
-      display: inline-block;
-      padding: 0.875rem 1.75rem;
-      border-radius: var(--radius);
-      font-weight: 600;
-      text-decoration: none;
-      text-align: center;
-      transition: var(--transition);
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background-color: var(--primary);
-      color: white;
-      border: 2px solid var(--primary);
-    }
-    .btn-primary:hover {
-      background-color: var(--dark);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--primary);
-      border: 2px solid var(--primary);
-      margin-left: 1rem;
-    }
-    .btn-outline:hover {
-      background-color: var(--primary-light);
-      color: white;
-    }
-
     .text-center {
       text-align: center;
     }
@@ -2097,49 +2064,52 @@ color: whitesmoke;
       opacity: 0.8;
     }
 
-    .package-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+/* === UPDATE THESE CLASSES === */
+
+.package-content {
   padding: 20px;
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* ← Centers everything horizontally */
+  text-align: center;      /* ← Centers titles & buttons */
 }
 
+.package-section-title {
+  color: #2200ff;
+  font-weight: bold;
+  margin: 20px 0 10px 0;
+  font-size: 1.1rem;
+  width: 100%;
+  text-align: center;
+}
 
+.feature-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;            /* ← Ensures full width within card */
+  max-width: 90%;         /* ← Prevents overly wide lines */
+  text-align: left;       /* ← Keep list items left-aligned for readability */
+}
 
+.feature-list li {
+  padding: 5px 0;
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.95rem;
+  text-align: left;
+  word-break: break-word; /* ← Break long words if needed */
+  hyphens: auto;          /* ← Optional: adds soft hyphens for better wrapping */
+}
 
-    .package-section-title {
-      color: #2200ff; 
-      font-weight: bold;
-      margin: 20px 0 10px 0;
-      font-size: 1.1rem;
-        width: 100%;
-      text-align: center;
-    }
-
-    .feature-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .feature-list li {
-      padding: 5px 0;
-      position: relative;
-      padding-left: 20px;
-      font-size: 0.95rem;
-      text-align: left;
-    }
-
-    .feature-list li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: #28a745;
-      font-weight: bold;
-    }
-
+.feature-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #28a745;
+  font-weight: bold;
+}
     /* Button Styles */
     .cta-button {
       margin: 20px;
@@ -2222,6 +2192,83 @@ color: whitesmoke;
       background: #e60000;
       opacity: 0.6;
     }
+
+    .seo-aeo-section {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #f8fbff; /* light blue-white */
+  border-radius: 8px;
+  font: 16px/1.6 sans-serif;
+  color: #333;
+}
+
+.seo-aeo-section h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+  color: #222;
+}
+
+.seo-aeo-section p {
+  margin: 0 0 1.5rem;
+  line-height: 1.7;
+}
+
+.seo-aeo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.card code {
+  background: #eee;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+.cta-box {
+  text-align: center;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 8px;
+  border-top: 2px solid #3498db;
+}
+
+.cta-box p {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+}
+
+
 
 
 
@@ -2654,10 +2701,26 @@ color: whitesmoke;
     font-size: 1rem;
   }
 
+    .seo-aeo-section {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .seo-aeo-grid {
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .cta-box {
+    padding: 1rem;
+  }
 
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .about-paragraphs {
     font-size: 18px;
     padding: 10px;
@@ -2682,6 +2745,23 @@ color: whitesmoke;
   .showcase-overlay .book-now-btn {
     padding: 10px 20px;
     font-size: 0.9rem;
+  }
+
+  .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+    padding-left: 0;
+    gap: 10px; /* space between checkmark and text */
+  }
+
+  .feature-list li::before {
+    content: "✓";
+    color: #28a745;
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-right: 5px;
   }
 }
 
