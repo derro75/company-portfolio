@@ -2344,8 +2344,13 @@ color: whitesmoke;
 }
 
 /* Business card gets special treatment */
-.support-img--card {
-  max-width: 220px; /* Slightly narrower to balance with wider posters */
+.support-img-b-card {
+
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  max-width: 540px; /* Prevent overflow */
+  min-width: 470px; /* Prevent overflow */
+  width: auto;   
   min-height: 250px; /* Ensures it doesn’t shrink too much vertically */
 }
 
@@ -2821,8 +2826,8 @@ color: whitesmoke;
     max-width: 250px;
   }
 
-  .support-img--card {
-    max-width: 200px;
+  .support-img-b-card {
+    max-width: 250px;
     min-height: 200px;
   }
 
@@ -2882,7 +2887,7 @@ color: whitesmoke;
     width: 100%;
   }
 
-  .support-img--card {
+  .support-img-b-card {
     max-width: 100%;
     min-height: auto; /* Let it scale naturally on mobile */
   }
