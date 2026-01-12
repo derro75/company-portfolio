@@ -743,39 +743,6 @@ html {
     }
 
 
-    .btn {
-      display: inline-block;
-      padding: 0.875rem 1.75rem;
-      border-radius: var(--radius);
-      font-weight: 600;
-      text-decoration: none;
-      text-align: center;
-      transition: var(--transition);
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background-color: var(--primary);
-      color: white;
-      border: 2px solid var(--primary);
-    }
-    .btn-primary:hover {
-      background-color: var(--dark);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--primary);
-      border: 2px solid var(--primary);
-      margin-left: 1rem;
-    }
-    .btn-outline:hover {
-      background-color: var(--primary-light);
-      color: white;
-    }
-
     .text-center {
       text-align: center;
     }
@@ -2053,6 +2020,298 @@ color: whitesmoke;
   color: #555;
 }
 
+.packages-container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .package-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      overflow: hidden;
+      width: 100%;
+      max-width: 350px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header Styles */
+    .package-header {
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    .package-header h3 {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .package-header .price {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+
+    .package-header .duration {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+/* === UPDATE THESE CLASSES === */
+
+.package-content {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* ← Centers everything horizontally */
+  text-align: center;      /* ← Centers titles & buttons */
+}
+
+.package-section-title {
+  color: #2200ff;
+  font-weight: bold;
+  margin: 20px 0 10px 0;
+  font-size: 1.1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.feature-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;            /* ← Ensures full width within card */
+  max-width: 90%;         /* ← Prevents overly wide lines */
+  text-align: left;       /* ← Keep list items left-aligned for readability */
+}
+
+.feature-list li {
+  padding: 5px 0;
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.95rem;
+  text-align: left;
+  word-break: break-word; /* ← Break long words if needed */
+  hyphens: auto;          /* ← Optional: adds soft hyphens for better wrapping */
+}
+
+.feature-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #28a745;
+  font-weight: bold;
+}
+    /* Button Styles */
+    .cta-button {
+      margin: 20px;
+      padding: 12px 20px;
+      border-radius: 30px;
+      text-align: center;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      color: white;
+      display: block;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    /* Package-Specific Colors */
+
+    .bronze .package-header {
+      background: #28a745; /* Green */
+    }
+    .bronze .cta-button {
+      background: #28a745;
+    }
+
+    .silver .package-header {
+      background: #343a40; /* Dark Gray */
+    }
+    .silver .cta-button {
+      background: #343a40;
+    }
+
+    .gold .package-header {
+      background: #dc3545; /* Red */
+    }
+    .gold .cta-button {
+      background: #dc3545;
+    }
+
+  /* SEO Text Block Styles */
+    .seo-intro-text {
+      margin-bottom: 25px;
+      font-size: 1rem;
+    }
+
+    .seo-intro-text p {
+      margin-bottom: 15px;
+    }
+
+    .seo-highlight {
+      color: #e60000; /* Red for emphasis */
+      font-weight: bold;
+      font-size: 1.05rem;
+    }
+
+    .seo-key-message {
+      font-weight: 500;
+      margin-top: 20px;
+      font-size: 1.05rem;
+    }
+
+    /* Optional: Subtle underline or highlight effect for key phrases */
+    .seo-key-message strong {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .seo-key-message strong::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #e60000;
+      opacity: 0.6;
+    }
+
+    .seo-aeo-section {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #f8fbff; /* light blue-white */
+  border-radius: 8px;
+  font: 16px/1.6 sans-serif;
+  color: #333;
+}
+
+.seo-aeo-section h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+  color: #222;
+}
+
+.seo-aeo-section p {
+  margin: 0 0 1.5rem;
+  line-height: 1.7;
+}
+
+.seo-aeo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.card code {
+  background: #eee;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+.cta-box {
+  text-align: center;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 8px;
+  border-top: 2px solid #3498db;
+}
+
+.cta-box p {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+}
+
+.bring-package {
+  max-width: 900px;
+  margin: 3rem auto 2rem;
+  padding: 1.5rem;
+  text-align: center;
+  font: 16px/1.6 sans-serif;
+  color: #333;
+}
+
+.bring-package-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  color: #2ecc71; /* green from your image */
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.deco-line {
+  flex: 1;
+  text-align: center;
+  font-size: 1.2rem;
+  letter-spacing: 0.5em;
+  opacity: 0.6;
+}
+
+.bring-package h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0.5rem 0 1rem;
+  color: #222;
+}
+
+.bring-package p {
+  margin: 0 auto;
+  max-width: 600px;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+
 
 
 @media (max-width: 600px) {
@@ -2468,9 +2727,59 @@ color: whitesmoke;
     font-size: 0.9rem;
     line-height: 1.6;
   }
+
+  .packages-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .package-card {
+    max-width: 100%;
+  }
+
+  .seo-intro-text {
+    font-size: 0.95rem;
+  }
+  .seo-highlight {
+    font-size: 1rem;
+  }
+
+    .seo-aeo-section {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .seo-aeo-grid {
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .cta-box {
+    padding: 1rem;
+  }
+
+    .bring-package {
+    padding: 1rem;
+    margin: 2rem auto 1.5rem;
+  }
+
+  .bring-package-section-title {
+    font-size: 1rem;
+    gap: 0.5rem;
+  }
+
+  .bring-package h2 {
+    font-size: 1.6rem;
+  }
+
+  .bring-package p {
+    font-size: 0.9rem;
+  }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .about-paragraphs {
     font-size: 18px;
     padding: 10px;
@@ -2496,4 +2805,22 @@ color: whitesmoke;
     padding: 10px 20px;
     font-size: 0.9rem;
   }
+
+  .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+    padding-left: 0;
+    gap: 10px; /* space between checkmark and text */
+  }
+
+  .feature-list li::before {
+    content: "✓";
+    color: #28a745;
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-right: 5px;
+  }
 }
+
