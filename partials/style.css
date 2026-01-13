@@ -2345,12 +2345,13 @@ color: whitesmoke;
 
 /* Business card gets special treatment */
 .support-img-b-card {
-  height: auto;
-  width: auto;
-  max-width: 300px; /* Cap for desktop balance */
-  min-height: 250px; /* Prevent shrinking too much vertically */
+
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  max-width: 540px; /* Prevent overflow */
+  min-width: 470px; /* Prevent overflow */
+  width: auto;   
+  min-height: 250px; /* Ensures it doesn’t shrink too much vertically */
 }
 
 
@@ -2890,13 +2891,14 @@ color: whitesmoke;
 
   }
 
-.support-img-b-card {
-  width: 100%;
-  max-width: 100%;
-  min-height: auto;
-  height: auto;
+  .support-img-b-card {
+    width: 100%;
+    min-height: auto; /* Let it scale naturally on mobile */
+  max-width: 490px; /* Prevent overflow */
+  min-width: 435px;
+  }
 }
-}
+
 
 
 
