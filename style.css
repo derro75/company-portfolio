@@ -2892,7 +2892,7 @@ color: whitesmoke;
   }
 
   .support-img-b-card {
-    max-width: 100%;
+    width: 100%;
     min-height: auto; /* Let it scale naturally on mobile */
   max-width: 490px; /* Prevent overflow */
   min-width: 435px;

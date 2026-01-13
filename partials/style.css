@@ -2312,36 +2312,22 @@ color: whitesmoke;
 }
 
 .design-showcase {
-  max-width: 100%;
   margin: 2rem auto;
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2rem;
 }
 
-/* Main Sherrick Web Image */
-.main-design {
+.main-design img {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.main-img {
-  width: 100%;
-  max-width: 600px; /* Optional: cap width on large screens */
+  max-width: 600px;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  transition: transform 0.2s;
 }
 
-.main-img:hover {
-  transform: scale(1.02);
-}
-
-/* Supporting Images Row */
 .supporting-designs {
   display: flex;
   gap: 1.5rem;
@@ -2350,16 +2336,22 @@ color: whitesmoke;
 }
 
 .support-img {
-  width: 100%;
-  max-width: 300px; /* Optional: limit width for balance */
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  transition: transform 0.2s;
+  max-width: 300px; /* Prevent overflow */
+  width: auto;       /* Let image decide width */
 }
 
-.support-img:hover {
-  transform: scale(1.02);
+/* Business card gets special treatment */
+.support-img-b-card {
+
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  max-width: 540px; /* Prevent overflow */
+  min-width: 470px; /* Prevent overflow */
+  width: auto;   
+  min-height: 250px; /* Ensures it doesn’t shrink too much vertically */
 }
 
 
@@ -2829,21 +2821,15 @@ color: whitesmoke;
     font-size: 0.9rem;
   }
 
-    .design-showcase {
-    padding: 0.75rem;
-    gap: 1.5rem;
-  }
-
-  .main-img {
-    max-width: 500px;
-  }
-
+  
   .support-img {
     max-width: 250px;
   }
 
-
-
+  .support-img-b-card {
+    max-width: 250px;
+    min-height: 200px;
+  }
 
 }
 
@@ -2890,21 +2876,29 @@ color: whitesmoke;
     flex-shrink: 0;
     margin-right: 5px;
   }
-  
+
   .supporting-designs {
     flex-direction: column;
     gap: 1rem;
   }
 
-  .main-img {
-    max-width: 100%;
-  }
-
   .support-img {
-    max-width: 100%;
+    width: 100%;
+  max-width: 270px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+
   }
 
+  .support-img-b-card {
+    width: 100%;
+    min-height: auto; /* Let it scale naturally on mobile */
+  max-width: 490px; /* Prevent overflow */
+  min-width: 435px;
+  }
 }
+
 
 
 
