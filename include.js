@@ -39,11 +39,17 @@ function includeHTML() {
       el.innerHTML = `<p style="color:red;">Error loading ${file}</p>`;
       console.error(err);
     } finally {
-      loaded++;
-      if (loaded === total) {
-        document.dispatchEvent(new Event("partials-loaded"));
-      }
-    }
+  loaded++;
+  if (loaded === total) {
+    document.dispatchEvent(new Event("partials-loaded"));
+
+    // ✅ FORCE layout recalculation after dynamic HTML load
+    requestAnimationFrame(() => {
+      window.dispatchEvent(new Event('resize'));
+    });
+  }
+}
+
   });
 }
 
