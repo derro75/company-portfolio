@@ -1507,13 +1507,12 @@
     <span>Financial Services</span>
   </nav>
 </div>
-
-
 <div class="mobile-app-section">
   <h1>Wealth & Protection</h1>
   <p class="section-intro">Helping individuals, families, and businesses secure their future through insurance, investments, savings, and financial planning solutions powered through Britam.</p>
 
   <div class="app-approach-grid">
+
     <a href="insurance" class="service-card-link" style="text-decoration: none; color: inherit; display: block;">
       <div class="approach-card">
         <h3>Insurance Solutions</h3>
@@ -1554,7 +1553,44 @@
     </a>
   </div>
 
-  <section id="insurance-section" class="page-section">
+
+
+  <div class="app-when-needed">
+    <h3>Why Financial Planning Matters</h3>
+    <ul>
+      <li><strong>Long-term wealth growth</strong> – Consistently building capital for future independence</li>
+      <li><strong>Education planning</strong> – Ensuring children’s academic dreams are financially secured</li>
+      <li><strong>Family protection</strong> – Providing a safety net for loved ones against life's uncertainties</li>
+      <li><strong>Retirement preparation</strong> – Maintaining your lifestyle after your working years</li>
+      <li><strong>Business continuity</strong> – Protecting your enterprise from operational and financial shocks</li>
+      <li><strong>Medical and emergency preparedness</strong> – Readiness for unexpected health or financial crises</li>
+    </ul>
+  </div>
+
+  <div class="app-cta-box">
+    <p>Not sure which insurance, savings, or investment solution fits your goals? We’ll guide you professionally based on your budget, priorities, and stage of life.</p>
+    <div class="geta_quote">
+      <a href="#">BOOK A FINANCIAL CONSULTATION</a>
+    </div>
+  </div>
+</div>
+
+
+</section>
+  <!-- insurance, savings, investments - mini sections -->
+<section id="insurance-section" class="page-section">
+
+      <div class="full-h1">
+  <h1 class="centered-heading">Insurance Products</h1>
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <a href="index">Home</a> 
+    <span>&raquo;</span> 
+    <a href="service">Services</a> 
+    <span>&raquo;</span> 
+    <a href="Wealth-Protection">Wealth & Protection</a> 
+    <span>Insurance Products</span>
+  </nav>
+</div>
   <h2 style="margin-top: 60px; text-align: center;">Insurance Products</h2>
   <div class="app-approach-grid">
     <div class="approach-card">
@@ -1562,8 +1598,21 @@
       <p>Secure your family's future with robust life insurance policies.</p>
       <div class="product-links" style="display: flex; flex-direction: column; gap: 8px; margin-top: 15px;">
         <a href="#">Dhamana</a>
-        <a href="#">Whole Life Plans</a>
-        <a href="#">Term Assurance</a>
+
+
+    <button onclick="loadPDF('pdf/boresha-elimu.pdf')">
+        View Boresha Elimu Brochure
+    </button>
+
+    <button onclick="loadPDF('pdf/whole-life.pdf')">
+        View Wealth Builder Brochure
+    </button>
+
+    <button onclick="loadPDF('pdf/education-plan.pdf')">
+        View Education Plan Brochure
+    </button>
+
+<div id="pdf-viewer"></div>
         <a href="#">Mortgage Protection</a>
         <a href="#">Last Expense Cover</a>
         <a href="#">Critical Illness Cover</a>
@@ -1647,12 +1696,25 @@
   </div>
   </section>
 
-  <h2 style="margin-top: 60px; text-align: center;">Savings & Investment Products</h2>
-  <div class="app-approach-grid">
-    <div class="approach-card">
-      <h3>Savings & Investment Policies</h3>
-      <p>Policy-based solutions for long-term capital accumulation.</p>
-      <div class="product-links" style="display: flex; flex-direction: column; gap: 8px; margin-top: 15px;">
+    <section id="savings-section" class="page-section">
+
+    <div class="full-h1">
+  <h1 class="centered-heading">Savings Products</h1>
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <a href="index">Home</a> 
+    <span>&raquo;</span> 
+    <a href="service">Services</a> 
+    <span>&raquo;</span> 
+    <a href="Wealth-Protection">Wealth & Protection</a> 
+    <span>Savings Products</span>
+  </nav>
+</div>
+    <h2 style="margin-top: 60px; text-align: center;">Savings Products</h2>
+    <div class="app-approach-grid">
+      <div class="approach-card">
+        <h3>Savings Policies</h3>
+        <p>Policy-based solutions for long-term capital accumulation.</p>
+        <div class="product-links" style="display: flex; flex-direction: column; gap: 8px; margin-top: 15px;">
         <a href="#">Akiba</a>
         <a href="#">Money Back Policy</a>
         <a href="#">Unit Linked Plans</a>
@@ -1660,6 +1722,24 @@
       </div>
     </div>
 
+  </div>
+  </section>
+
+  <section id="investments-section" class="page-section">
+        <div class="full-h1">
+  <h1 class="centered-heading">Investment Products</h1>
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <a href="index">Home</a> 
+    <span>&raquo;</span> 
+    <a href="service">Services</a> 
+    <span>&raquo;</span> 
+    <a href="Wealth-Protection">Wealth & Protection</a> 
+    <span>Investment Products</span>
+  </nav>
+</div>
+  <h2 style="margin-top: 60px; text-align: center;">Investment Products</h2>
+  <div class="app-approach-grid">
+  
     <div class="approach-card">
       <h3>Money Market & Unit Trusts</h3>
       <p>Liquid and flexible investment funds managed by experts.</p>
@@ -1682,29 +1762,7 @@
       </div>
     </div>
   </div>
-
-  <div class="app-when-needed">
-    <h3>Why Financial Planning Matters</h3>
-    <ul>
-      <li><strong>Long-term wealth growth</strong> – Consistently building capital for future independence</li>
-      <li><strong>Education planning</strong> – Ensuring children’s academic dreams are financially secured</li>
-      <li><strong>Family protection</strong> – Providing a safety net for loved ones against life's uncertainties</li>
-      <li><strong>Retirement preparation</strong> – Maintaining your lifestyle after your working years</li>
-      <li><strong>Business continuity</strong> – Protecting your enterprise from operational and financial shocks</li>
-      <li><strong>Medical and emergency preparedness</strong> – Readiness for unexpected health or financial crises</li>
-    </ul>
-  </div>
-
-  <div class="app-cta-box">
-    <p>Not sure which insurance, savings, or investment solution fits your goals? We’ll guide you professionally based on your budget, priorities, and stage of life.</p>
-    <div class="geta_quote">
-      <a href="#">BOOK A FINANCIAL CONSULTATION</a>
-    </div>
-  </div>
-</div>
-
-
-</section>
+  </section>
 
 <!-- 10. About Us -->
 <section id="about-section" class="page-section">
