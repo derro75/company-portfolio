@@ -31,3 +31,127 @@
     gap: 10px;
     margin-top: 15px;
 }
+
+
+
+/* Base Layout & Reset */
+.page-section {
+    padding: 40px 20px;
+    font-family: sans-serif; /* Replace with your primary font */
+    line-height: 1.6;
+}
+
+/* Header & Breadcrumb Section */
+.full-h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.centered-heading {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.breadcrumb-nav {
+    font-size: 0.9rem;
+}
+
+.breadcrumb-nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.breadcrumb-nav span {
+    margin: 0 8px;
+    opacity: 0.7;
+}
+
+/* Product Container & Card */
+.product-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.product-card {
+    width: 100%;
+    padding: 30px;
+    border: 1px solid; /* Uses currentColor or default border color */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-card h2 {
+    font-size: 1.75rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-size: 1.2rem;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid transparent; /* Placeholder for layout */
+}
+
+.product-description {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+/* List Styling */
+.product-card ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.product-card li {
+    margin-bottom: 8px;
+}
+
+/* Action Buttons */
+.product-actions {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.brochure {
+    display: inline-block;
+    padding: 12px 25px;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+/* Responsive Enhancements for Laptop Screen Sizes */
+@media (min-width: 1024px) {
+    .page-section {
+        padding: 60px 40px;
+    }
+
+    .centered-heading {
+        font-size: 2.5rem;
+    }
+
+    .product-card {
+        padding: 50px;
+        max-width: 800px; /* Centered narrow card for readability */
+    }
+
+    .product-actions {
+        flex-direction: row; /* Side-by-side on laptop */
+        justify-content: flex-start;
+    }
+
+    .brochure {
+        width: auto;
+    }
+}
